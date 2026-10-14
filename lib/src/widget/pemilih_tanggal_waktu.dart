@@ -1,7 +1,7 @@
 // Path: lib/shared/widget/pemilih_tanggal_waktu.dart
 
-import 'package:share_global_saya/src/utils/format_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:share_global_saya/src/utils/format_utils.dart';
 
 class PemilihTanggalWaktuWidget extends StatelessWidget {
   final DateTime? tanggalTerpilih;
@@ -25,8 +25,7 @@ class PemilihTanggalWaktuWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final sekarang = DateTime.now();
 
-    final sudahSekarang =
-        tanggalTerpilih != null &&
+    final sudahSekarang = tanggalTerpilih != null &&
         waktuTerpilih != null &&
         DateUtils.isSameDay(tanggalTerpilih, sekarang) &&
         waktuTerpilih!.hour == sekarang.hour &&
@@ -75,7 +74,7 @@ class PemilihTanggalWaktuWidget extends StatelessWidget {
                 waktuTerpilih == null
                     ? 'Pilih Jam'
                     : '${waktuTerpilih!.hour.toString().padLeft(2, '0')}:'
-                          '${waktuTerpilih!.minute.toString().padLeft(2, '0')}',
+                        '${waktuTerpilih!.minute.toString().padLeft(2, '0')}',
               ),
             ),
           ],

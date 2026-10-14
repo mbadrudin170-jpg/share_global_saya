@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:share_global_saya/db/model/log_debug_model.dart';
 import 'package:share_global_saya/log_debug/print_custom.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 
 part 'log_debug_notifier.freezed.dart';
 part 'log_debug_notifier.g.dart'

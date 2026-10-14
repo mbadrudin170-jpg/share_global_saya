@@ -12,7 +12,6 @@ export 'package:core_shared/src/utils/l.dart';
 export 'package:core_shared/src/utils/navigator_helper.dart';
 export 'package:core_shared/src/utils/parser_util.dart';
 export 'package:core_shared/src/utils/shared_pref_service.dart';
-export 'package:core_shared/src/widget/async_value_widget.dart';
 export 'package:core_shared/src/widget/confirmation_dialog.dart';
 export 'package:core_shared/src/widget/input/input_angka.dart';
 export 'package:core_shared/src/widget/input/input_autocomplete.dart';

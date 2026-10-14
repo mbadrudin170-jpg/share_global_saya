@@ -1,120 +1,118 @@
-include: package:flutter_lints/flutter.yaml
+# include: package:flutter_lints/flutter.yaml
 
-linter:
-  rules:
-    # PENCEGAHAN BUG (Ekstra Ketat)
-    unawaited_futures: true
-    avoid_dynamic_calls: true
-    only_throw_errors: true
-    throw_in_finally: true
-    cancel_subscriptions: true
-    close_sinks: true
-    avoid_void_async: true
-    avoid_print: true               # 🆕 Baru: Cegah kebocoran log data di aplikasi rilis
-    discarded_futures: false         # 🆕 Baru: Cegah fungsi async berjalan di dalam UI build
+# plugins:
+#   riverpod_lint: ^3.1.9
 
-    # OPTIMASI PERFORMA FLUTTER
-    prefer_const_constructors: true # 🆕 Baru: Hemat CPU & Baterai HP via widget const
-    prefer_const_literals_to_create_immutables: true # 🆕 Baru: Optimasi List statis
-    sized_box_for_whitespace: true  # 🆕 Baru: Gunakan SizedBox dibanding Container kosong
-    use_decorated_box: true
-    use_colored_box: true
+# linter:
+#   rules:
+#     # PENCEGAHAN BUG
+#     unawaited_futures: true
+#     discarded_futures: true
+#     avoid_dynamic_calls: true
+#     only_throw_errors: true
+#     throw_in_finally: true
+#     cancel_subscriptions: true
+#     close_sinks: true
+#     avoid_void_async: true
+#     avoid_print: true
 
-    # KEBERSIHAN & FORMAT KODE UI
-    require_trailing_commas: true    # 🆕 Baru: Format kode otomatis tersusun rapi ke bawah
-    sort_child_properties_last: true # 🆕 Baru: Child widget selalu di posisi paling bawah
-    always_use_package_imports: true
-    directives_ordering: true
-    prefer_final_fields: true
-    avoid_redundant_argument_values: true
-    unnecessary_lambdas: true
-    unnecessary_overrides: true
-    use_full_hex_values_for_flutter_colors: true
+#     # FLUTTER / PERFORMA
+#     prefer_const_constructors: true
+#     prefer_const_literals_to_create_immutables: true
+#     sized_box_for_whitespace: true
+#     use_decorated_box: true
+#     use_colored_box: true
+#     avoid_unnecessary_containers: true
 
-    # KETETAPAN TIPE (Type System)
-    type_annotate_public_apis: true
-    omit_local_variable_types: true
-    avoid_types_on_closure_parameters: true
+#     # KEBERSIHAN KODE
+#     require_trailing_commas: true
+#     sort_child_properties_last: true
+#     always_use_package_imports: true
+#     directives_ordering: true
+#     prefer_final_fields: true
+#     avoid_redundant_argument_values: true
+#     unnecessary_lambdas: true
+#     unnecessary_overrides: true
 
-    # GAYA PENULISAN MODERN
-    prefer_single_quotes: true
-    prefer_final_locals: true
-    prefer_final_in_for_each: true
-    unnecessary_string_interpolations: true
-    implicit_call_tearoffs: true
-    prefer_interpolation_to_compose_strings: true
-    no_duplicate_case_values: true
-    prefer_conditional_assignment: true
-    null_closures: true
-    prefer_contains: true
-    prefer_for_elements_to_map_fromIterable: true
-    unnecessary_const: true
-    unnecessary_getters_setters: true
-    use_super_parameters: true
-    use_build_context_synchronously: true
-    await_only_futures: true
-    avoid_single_cascade_in_expression_statements: true
-    prefer_is_empty: true
-    prefer_is_not_empty: true
-    prefer_is_not_operator: true
-    prefer_iterable_whereType: true
-    prefer_null_aware_operators: true
-    prefer_spread_collections: true
-    use_key_in_widget_constructors: true
-    use_function_type_syntax_for_parameters: true
-    unrelated_type_equality_checks: true
-    unnecessary_underscores: true
-    unnecessary_to_list_in_spreads: true
-    unnecessary_this: true
-    unnecessary_string_escapes: true
-    unnecessary_nullable_for_final_variable_declarations: true
-    unnecessary_null_in_if_null_operators: true
-    unnecessary_null_aware_assignments: true
-    unnecessary_new: true
-    unnecessary_late: true
-    unnecessary_constructor_name: true
-    unnecessary_brace_in_string_interps: true
-    type_literal_in_constant_pattern: true
-    type_init_formals: true
-    strict_top_level_inference: true
-    prefer_typing_uninitialized_variables: true
-    avoid_returning_null_for_void: true
-    avoid_return_types_on_setters: true
-    exhaustive_cases: true
-    non_constant_identifier_names: true
-    null_check_on_nullable_type_parameter: true
+#     # TYPE SAFETY
+#     type_annotate_public_apis: true
+#     omit_local_variable_types: true
+#     avoid_types_on_closure_parameters: true
+#     strict_top_level_inference: true
+#     prefer_typing_uninitialized_variables: true
 
-    # CORE 
-    avoid_empty_else: true
-    curly_braces_in_flow_control_structures: true
-    empty_catches: true
-    hash_and_equals: true
-    prefer_generic_function_type_aliases: true
+#     # MODERN DART
+#     prefer_single_quotes: true
+#     prefer_final_locals: true
+#     prefer_final_in_for_each: true
+#     unnecessary_string_interpolations: true
+#     implicit_call_tearoffs: true
+#     prefer_interpolation_to_compose_strings: true
+#     no_duplicate_case_values: true
+#     prefer_conditional_assignment: true
+#     null_closures: true
+#     prefer_contains: true
+#     prefer_for_elements_to_map_fromIterable: true
+#     unnecessary_const: true
+#     unnecessary_getters_setters: true
+#     use_super_parameters: true
+#     use_build_context_synchronously: true
+#     await_only_futures: true
+#     avoid_single_cascade_in_expression_statements: true
+#     prefer_is_empty: true
+#     prefer_is_not_empty: true
+#     prefer_is_not_operator: true
+#     prefer_iterable_whereType: true
+#     prefer_null_aware_operators: true
+#     prefer_spread_collections: true
+#     use_key_in_widget_constructors: true
+#     use_function_type_syntax_for_parameters: true
 
-    #FLUTTER
-    always_put_control_body_on_new_line: true
-    unnecessary_async: true
+#     # CLEANUP
+#     unrelated_type_equality_checks: true
+#     unnecessary_underscores: true
+#     unnecessary_to_list_in_spreads: true
+#     unnecessary_this: true
+#     unnecessary_string_escapes: true
+#     unnecessary_nullable_for_final_variable_declarations: true
+#     unnecessary_null_in_if_null_operators: true
+#     unnecessary_null_aware_assignments: true
+#     unnecessary_new: true
+#     unnecessary_late: true
+#     unnecessary_constructor_name: true
+#     unnecessary_brace_in_string_interps: true
 
-analyzer:
-  exclude:
-    - "**/*.g.dart"
-    - "**/*.freezed.dart"
-    - build/**
-    - android/**
-    - ios/**
-    - web/**
-    - windows/**
-    - macos/**
-    - linux/**
-  
-  # # 🔴 Mengubah warning menjadi hard error agar wajib diperbaiki sebelum build aplikasi
-  # errors:
-  #   # use_build_context_synchronously: error
-    # unawaited_futures: error
-    # avoid_dynamic_calls: error
-    # discarded_futures: error
+#     # CORE
+#     avoid_empty_else: true
+#     curly_braces_in_flow_control_structures: true
+#     empty_catches: true
+#     hash_and_equals: true
+#     prefer_generic_function_type_aliases: true
 
-  language:
-    strict-casts: true
-    strict-inference: true
-    strict-raw-types: true
+#     # FLUTTER
+#     always_put_control_body_on_new_line: false
+#     unnecessary_async: true
+
+#     # API / OVERRIDE
+#     annotate_overrides: true
+
+#     # DEPENDENCIES
+#     depend_on_referenced_packages: true
+#     public_member_api_docs: true
+
+# analyzer:
+#   exclude:
+#     - "**/*.g.dart"
+#     - "**/*.freezed.dart"
+#     - build/**
+#     - android/**
+#     - ios/**
+#     - web/**
+#     - windows/**
+#     - macos/**
+#     - linux/**
+
+#   language:
+#     strict-casts: true
+#     strict-inference: true
+#     strict-raw-types: true

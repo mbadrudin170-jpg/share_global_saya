@@ -23,4 +23,3 @@ export 'package:share_global_saya/src/widget/input/input_telepon.dart';
 export 'package:share_global_saya/src/widget/input/rupiah_input_formatter.dart';
 export 'package:share_global_saya/src/widget/input/thousands_input_formatter.dart';
 export 'package:share_global_saya/src/widget/pemilih_tanggal_waktu.dart';
-export 'package:share_global_saya/src/widget/snackbar_widget.dart';

@@ -37,6 +37,7 @@ class AsyncValueWidget<T> extends StatelessWidget {
           },
     );
   }
+  
 }
 
 extension AsyncValueX<T> on AsyncValue<T> {

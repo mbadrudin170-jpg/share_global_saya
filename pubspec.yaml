@@ -1,12 +1,12 @@
-name: core_shared
+name: share_global_saya
 description: "Kode bersama (utils, widget, logger) untuk dipakai di banyak projek Flutter."
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
-  flutter: '>=3.22.0'
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
 
 dependencies:
   flutter:

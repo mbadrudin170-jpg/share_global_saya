@@ -1,6 +1,6 @@
 // path: lib/shared/widget/input/input_angka.dart
 
-import 'package:core_shared/src/widget/input/thousands_input_formatter.dart';
+import 'package:share_global_saya/src/widget/input/thousands_input_formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

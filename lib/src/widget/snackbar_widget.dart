@@ -1,6 +1,6 @@
 // lib/shared/widget/snackbar_widget.dart
 
-import 'package:core_shared/src/app_keys.dart';
+import 'package:share_global_saya/src/app_keys.dart';
 import 'package:flutter/material.dart';
 
 class CustomSnackBar {

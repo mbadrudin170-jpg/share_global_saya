@@ -1,6 +1,6 @@
 // lib/shared/utils/parser_util.dart
 
-import 'package:core_shared/src/utils/l.dart';
+import 'package:share_global_saya/src/utils/l.dart';
 
 class ParserUtil {
   // Mencegah class ini diinstansiasi.

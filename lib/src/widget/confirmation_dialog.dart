@@ -1,6 +1,6 @@
 //~/warkop/lib/shared/widget/confirmation_dialog.dart
 
-import 'package:core_shared/src/utils/navigator_helper.dart';
+import 'package:share_global_saya/src/utils/navigator_helper.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmationDialog {

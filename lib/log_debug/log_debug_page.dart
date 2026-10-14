@@ -1,13 +1,10 @@
 // lib/shared/log_debug/log_debug_page.dart
 
-import 'package:apk_kencan/shared/db/sqflite/model/log_debug_model.dart';
-import 'package:apk_kencan/shared/log_debug/log_debug_notifier.dart';
-import 'package:apk_kencan/shared/tema/app_size.dart';
-import 'package:apk_kencan/shared/utils/format_utils.dart';
-import 'package:apk_kencan/shared/widget/snackbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:share_global_saya/core_shared.dart';
+import 'package:share_global_saya/db/model/log_debug_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum ModeTampilanDebug { logDebug, dummyData }
@@ -119,7 +116,7 @@ class _LogDebugPageState extends ConsumerState<LogDebugPage> {
     await Clipboard.setData(ClipboardData(text: text));
 
     if (mounted) {
-      CustomSnackBar.sukses('Log debug disalin ke clipboard');
+      AppToast.sukses(context,'Log debug disalin ke clipboard');
     }
   }
 

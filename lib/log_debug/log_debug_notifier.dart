@@ -2,15 +2,13 @@
 
 import 'dart:async';
 
-import 'package:apk_kencan/shared/db/sqflite/db_repository.dart';
-import 'package:apk_kencan/shared/db/sqflite/model/log_debug_model.dart';
-import 'package:apk_kencan/shared/log_debug/print_custom.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:share_global_saya/db/model/log_debug_model.dart';
+import 'package:share_global_saya/log_debug/print_custom.dart';
 
 part 'log_debug_notifier.freezed.dart';
-part 'log_debug_notifier.g.dart';
+part 'log_debug_notifier.g.dart'
 
 @freezed
 abstract class LogDebugState with _$LogDebugState {

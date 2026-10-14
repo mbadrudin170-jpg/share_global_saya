@@ -1,0 +1,87 @@
+// Path: lib/shared/utils/format_utils.dart
+
+import 'package:intl/intl.dart';
+
+class FormatWaktuLengkap {
+  FormatWaktuLengkap._();
+
+  static String formatSingkat(DateTime date) {
+    final format = DateFormat('d MMM yyyy, HH:mm', 'id_ID');
+    return format.format(date);
+  }
+
+  static String formatLengkap(DateTime date) {
+    final format = DateFormat('E, d MMM yy, HH:mm', 'id_ID');
+    return format.format(date);
+  }
+}
+
+class FormatTanggal {
+  FormatTanggal._();
+
+  static String formatDasar(DateTime date) {
+    return DateFormat('d MMM yyyy', 'id_ID').format(date);
+  }
+
+  static String formatSingkat(DateTime date) {
+    return DateFormat('E, d MMM yy', 'id_ID').format(date);
+  }
+  
+
+  static String formatBulanTahun(DateTime date) {
+    return DateFormat('MMMM yyyy', 'id_ID').format(date);
+  }
+}
+
+class FormatJam {
+  FormatJam._();
+
+  static String formatJamMenit(DateTime time) {
+    return DateFormat('HH:mm', 'id_ID').format(time);
+  }
+
+  static String formatJamMenitDetik(DateTime time) {
+    return DateFormat('HH:mm:ss', 'id_ID').format(time);
+  }
+
+  static String formatTextToHour(String timeText) {
+    try {
+      final dateTime = DateTime.parse(timeText);
+      return DateFormat('HH:mm', 'id_ID').format(dateTime);
+    } on Exception {
+      return '--:--';
+    }
+  }
+}
+
+class FormatUang {
+  FormatUang._();
+  static String formatRupiah(double amount) {
+    final formatter = NumberFormat.currency(
+      locale: 'id_ID',
+      symbol: 'Rp ',
+      decimalDigits: 0,
+    );
+    return formatter.format(amount.abs());
+  }
+}
+
+class FormatNomor {
+  FormatNomor._();
+
+  static String formatRibuan(int value) {
+    final formatter = NumberFormat('#,###', 'id_ID');
+    return formatter.format(value);
+  }
+
+  static String formatPersen(double value) {
+    final formatter = NumberFormat.percentPattern('id_ID');
+    return formatter.format(value);
+  }
+
+  /// Overload untuk menerima int (langsung dianggap sebagai persen).
+  /// Contoh: 85 -> "85%"
+  static String formatPersenInt(int value) {
+    return formatPersen(value / 100); // ubah ke desimal
+  }
+}

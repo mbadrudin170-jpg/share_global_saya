@@ -4,13 +4,13 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:share_global_saya/db/model/log_debug_model.dart';
 import 'package:share_global_saya/log_debug/print_custom.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 
 part 'log_debug_notifier.freezed.dart';
-part 'log_debug_notifier.g.dart'
+part 'log_debug_notifier.g.dart';
 
 @freezed
 abstract class LogDebugState with _$LogDebugState {
@@ -47,11 +47,7 @@ class LogDebugNotifier extends _$LogDebugNotifier {
 
   @override
   Future<LogDebugState> build() async {
-    if (kIsWeb) {
       return const LogDebugState();
-    } else {
-      return ambilData();
-    }
   }
 
   Future<void> tambah(LogDebugModel logDebug) {
@@ -78,14 +74,6 @@ class LogDebugNotifier extends _$LogDebugNotifier {
       p(
         'tambah: [queue] state di-update, listLogDebug.length=${stateBaru.listLogDebug.length}',
       );
-
-      p(
-        'tambah: [queue] memanggil ref.read(dbRepositoryProvider).tambahLogDebug()',
-      );
-      if (!kIsWeb) {
-        await ref.read(dbRepositoryProvider).tambahLogDebug(logDebug);
-      }
-      p('tambah: [queue] DB insert selesai');
     });
 
     // ignore: discarded_futures
@@ -98,44 +86,9 @@ class LogDebugNotifier extends _$LogDebugNotifier {
   }
 
   Future<void> hapusSemua() async {
-    p('=== hapusSemua() MULAI ===');
-    p('hapusSemua: notifier.hashCode=$hashCode');
-    p('hapusSemua: state sebelum=${state.value?.listLogDebug.length} log');
     state = const AsyncValue.data(LogDebugState());
-    p(
-      'hapusSemua: state setelah di-set kosong, listLogDebug.length=${state.value?.listLogDebug.length}',
-    );
-    p('hapusSemua: memanggil DB hapusSemuaLogDebug()');
-    if (kIsWeb) {
-      return;
-    }
-    await ref.read(dbRepositoryProvider).hapusSemuaLogDebug();
-    p('hapusSemua: DB hapus selesai');
-    p('=== hapusSemua() SELESAI ===');
   }
 
-  Future<LogDebugState> ambilData() async {
-    p('=== LogDebugNotifier.build MULAI ===');
-    p('build: notifier.hashCode=$hashCode');
-    p('build: ref.hashCode=${ref.hashCode}');
-    try {
-      final logs = await ref.read(dbRepositoryProvider).ambilSemuaLogDebug();
-      p('build: dapat ${logs.length} log dari DB');
-      for (final l in logs.take(5)) {
-        p('build: sample log = [${l.tipeLog.name}] ${l.pesan}');
-      }
-      final stateBaru = LogDebugState(listLogDebug: logs);
-      p(
-        'build: state dibuat, listLogDebug.length=${stateBaru.listLogDebug.length}',
-      );
-      p('=== LogDebugNotifier.build SELESAI ===');
-      return stateBaru;
-    } catch (e, s) {
-      p('build: ERROR: $e\n$s');
-      p('=== LogDebugNotifier.build GAGAL ===');
-      rethrow;
-    }
-  }
 
   Future<void> tesTambah(LogDebugModel logDebug) async {
     final stateSekarang = await future;

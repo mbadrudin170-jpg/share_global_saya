@@ -5,7 +5,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:share_global_saya/core_shared.dart';
+import 'package:share_global_saya/db/model/log_debug_model.dart';
 import 'package:share_global_saya/log_debug/print_custom.dart';
+import 'package:share_global_saya/src/widget/toast_widget.dart';
 
 // ============================================================================
 // Provider tampil / sembunyi ikon
@@ -326,7 +329,7 @@ class _OverlayLogDebugState extends ConsumerState<OverlayLogDebug> {
     await Clipboard.setData(ClipboardData(text: text));
     await ref.read(logDebugProvider.notifier).hapusSemua();
     if (mounted) {
-      CustomSnackBar.sukses('Log debug disalin ke clipboard');
+      AppToast.sukses(context, 'Log debug disalin ke clipboard');
     }
     widget.onClose();
   }

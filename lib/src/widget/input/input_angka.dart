@@ -40,6 +40,11 @@ class InputAngka extends StatelessWidget {
     this.validator,
   });
 
+  static double parseAngkaRibuan(String teks) {
+    final bersih = teks.trim().replaceAll(RegExp(r'[^0-9\-]'), '');
+    return double.tryParse(bersih) ?? 0;
+  }
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(

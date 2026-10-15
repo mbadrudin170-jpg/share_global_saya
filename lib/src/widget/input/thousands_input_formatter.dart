@@ -2,65 +2,58 @@
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
-/// Formatter untuk TextField agar dapat menampilkan format angka ribuan secara otomatis.
-// diubah: Nama kelas diperbarui untuk mencerminkan dukungan angka negatif.
+/// Formatter untuk [TextField] agar angka ditampilkan dengan pemisah
+/// ribuan secara otomatis, serta mendukung input angka negatif.
 class ThousandsAndNegativeInputFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-    // dihapus: Logika lama yang tidak efisien dalam menangani string kosong.
-    // if (newValue.text.isEmpty) {
-    //   return newValue.copyWith(text: '');
-    // }
-
-    // ditambah: Jika teks baru kosong setelah di-trim, kembalikan nilai kosong. Lebih andal.
+    // Teks kosong → biarkan kosong.
     if (newValue.text.trim().isEmpty) {
       return newValue.copyWith(text: '');
     }
 
-    // ditambah: Jika pengguna baru saja mengetik '-', izinkan dan tunggu input selanjutnya.
+    // User baru mengetik '-' → izinkan, tunggu digit berikutnya.
     if (newValue.text == '-') {
       return newValue;
     }
 
-    // diubah: Logika dimodifikasi sepenuhnya untuk mendukung angka negatif.
-    // Simpan status negatif.
+    // Deteksi tanda negatif di awal teks.
     final isNegative = newValue.text.startsWith('-');
 
-    // Ambil hanya digit dari string.
+    // Ambil hanya digit dari teks (buang semua karakter lain).
     final digitsOnly = newValue.text.replaceAll(RegExp(r'[^0-9]'), '');
 
-    // ditambah: Jika tidak ada digit (misalnya, setelah menghapus '-'),
-    // pertahankan tanda '-' agar pengguna bisa lanjut mengetik angka.
+    // Tidak ada digit sama sekali.
     if (digitsOnly.isEmpty) {
-      // ditambah: hanya kembalikan tanda '-' jika memang dimulai dengan itu.
+      // Kalau teks dimulai dengan '-', pertahankan tanda minusnya.
       if (isNegative) {
         return const TextEditingValue(
           text: '-',
           selection: TextSelection.collapsed(offset: 1),
         );
       }
-      // ditambah: jika tidak, itu adalah input yang tidak valid (bukan angka), jadi kembalikan nilai lama.
+      // Selain itu, input tidak valid → kembalikan nilai lama.
       return oldValue;
     }
 
     // Konversi string digit menjadi angka.
     final number = int.tryParse(digitsOnly);
-    // diubah: Menggunakan nilai lama (oldValue) sebagai fallback yang lebih aman jika parsing gagal.
+    // Parsing gagal → kembalikan nilai lama sebagai fallback yang aman.
     if (number == null) {
       return oldValue;
     }
 
-    // Format angka menggunakan NumberFormat dari package 'intl'.
+    // Format angka dengan pemisah ribuan gaya Indonesia.
     final formatter = NumberFormat('#,###', 'id_ID');
     final formattedNumber = formatter.format(number);
 
-    // Gabungkan kembali tanda negatif jika ada.
+    // Gabungkan kembali tanda negatif kalau ada.
     final newText = isNegative ? '-$formattedNumber' : formattedNumber;
 
-    // Kembalikan nilai yang sudah diformat dengan posisi kursor di akhir.
+    // Kembalikan teks yang sudah diformat, kursor di akhir.
     return newValue.copyWith(
       text: newText,
       selection: TextSelection.collapsed(offset: newText.length),

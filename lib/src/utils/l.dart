@@ -8,6 +8,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stack_trace/stack_trace.dart';
 import 'package:uuid/uuid.dart';
+import 'package:share_global_saya/db/model/log_debug_model.dart';
+import 'package:share_global_saya/log_debug/log_debug_notifier.dart';
 
 /// ============================================================
 /// KELAS L - SINGLE ENTRY POINT UNTUK LOGGING
@@ -18,35 +20,40 @@ class L {
 
   static final Uuid _uuid = const Uuid();
 
+  /// ProviderContainer untuk kirim log ke LogDebugNotifier (overlay debug)
+  static ProviderContainer? _container;
+
   // -------------------- INISIALISASI --------------------
-  static void init(ProviderContainer container) {}
+  static void init(ProviderContainer container) {
+    _container = container;
+  }
 
   /// Matikan output console dari Logger agar tidak double print.
   static void disableConsole() {}
 
   // -------------------- METHOD PUBLIC --------------------
   static void i(String message) {
-    _print('ℹ️ $message');
+    _print('ℹ️ $message', TipeLog.info);
   }
 
   static void s(String message) {
-    _print('✅ $message');
+    _print('✅ $message', TipeLog.sukses);
   }
 
   static void w(String message) {
-    _print('⚠️ $message');
+    _print('⚠️ $message', TipeLog.warning);
   }
 
   static void e(String message) {
-    _print('❌ $message');
+    _print('❌ $message', TipeLog.error);
   }
 
   static void json(Map<String, dynamic> data) {
-    _print('📦 $data');
+    _print('📦 $data', TipeLog.info);
   }
 
   static void list(List<dynamic> items, {String label = '📋'}) {
-    _print('$label $items');
+    _print('$label $items', TipeLog.info);
   }
 
   static void api(
@@ -56,11 +63,11 @@ class L {
   }) {
     final id = _uuid.v4();
     final message = '[$method][$id] $path Data: $data';
-    _print('🌐 $message');
+    _print('🌐 $message', TipeLog.api);
   }
 
   // -------------------- METHOD INTERNAL (PRINT) --------------------
-  static void _print(String message) {
+  static void _print(String message, TipeLog tipeLog) {
     if (!kDebugMode) {
       return;
     }
@@ -79,6 +86,25 @@ class L {
     final output = '$message$location';
     if (kDebugMode) {
       debugPrint(output);
+    }
+
+    // Kirim ke LogDebugNotifier untuk overlay debug log
+    _kirimKeOverlayDebug(message, tipeLog);
+  }
+
+  static void _kirimKeOverlayDebug(String message, TipeLog tipeLog) {
+    if (_container == null) return;
+    try {
+      _container!.read(logDebugProvider.notifier).tambah(
+        LogDebugModel(
+          id: _uuid.v4(),
+          tipeLog: tipeLog,
+          pesan: message,
+          tanggal: DateTime.now().toIso8601String(),
+        ),
+      );
+    } catch (_) {
+      // Abaikan error (misal provider belum siap)
     }
   }
 

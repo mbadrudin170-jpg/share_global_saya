@@ -130,9 +130,8 @@ class InputTeks extends StatelessWidget {
         border: defaultBorder,
         enabledBorder: defaultBorder,
         focusedBorder: focusedBorder,
-        prefixIcon: prefixIcon != null
-            ? Icon(prefixIcon, color: iconColor)
-            : null,
+        prefixIcon:
+            prefixIcon != null ? Icon(prefixIcon, color: iconColor) : null,
         suffixIcon: suffixIcon != null
             ? IconButton(
                 icon: Icon(suffixIcon, color: suffixIconColor ?? iconColor),
@@ -141,8 +140,7 @@ class InputTeks extends StatelessWidget {
             : null,
         suffixText: suffixText,
         suffixStyle: suffixStyle,
-        hintStyle:
-            hintStyle ??
+        hintStyle: hintStyle ??
             theme.textTheme.bodyLarge?.copyWith(color: theme.hintColor),
         isDense: isDense,
         contentPadding: contentPadding,
@@ -162,8 +160,7 @@ class InputTeks extends StatelessWidget {
           FocusScope.of(context).unfocus();
         }
       },
-      validator:
-          validator ??
+      validator: validator ??
           (value) {
             if (wajib && (value == null || value.trim().isEmpty)) {
               return '$label wajib diisi';

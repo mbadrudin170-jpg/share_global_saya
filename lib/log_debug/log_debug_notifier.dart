@@ -62,7 +62,6 @@ class LogDebugNotifier extends _$LogDebugNotifier {
       p(
         'tambah: [queue] stateSekarang.listLogDebug.length=${stateSekarang.listLogDebug.length}',
       );
-      p('tambah: [queue] stateSekarang.listLogDebug (5 pertama):');
       for (final l in stateSekarang.listLogDebug.take(5)) {
         p('tambah: [queue]   - [${l.tipeLog.name}] ${l.pesan}');
       }

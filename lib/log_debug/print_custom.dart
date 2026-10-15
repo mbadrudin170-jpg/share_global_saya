@@ -1,5 +1,5 @@
 void p(String pesan) {
-  final aktif = false;
+  final aktif = true;
   if (aktif == true) {
     print(pesan);
   }

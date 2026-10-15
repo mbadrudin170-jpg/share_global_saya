@@ -17,6 +17,7 @@ import 'package:share_global_saya/log_debug/log_debug_notifier.dart';
 class L {
   static bool showLocation = true;
   static bool useTerse = true;
+  final bool _aktifkanLog = true;
 
   static final Uuid _uuid = const Uuid();
 
@@ -68,9 +69,7 @@ class L {
 
   // -------------------- METHOD INTERNAL (PRINT) --------------------
   static void _print(String message, TipeLog tipeLog) {
-    if (!kDebugMode) {
-      return;
-    }
+    if (!_aktifkanLog) return;
     var location = '';
     if (showLocation) {
       final fromStack = _getLocationFromStackTrace();
@@ -96,13 +95,13 @@ class L {
     if (_container == null) return;
     try {
       _container!.read(logDebugProvider.notifier).tambah(
-        LogDebugModel(
-          id: _uuid.v4(),
-          tipeLog: tipeLog,
-          pesan: message,
-          tanggal: DateTime.now().toIso8601String(),
-        ),
-      );
+            LogDebugModel(
+              id: _uuid.v4(),
+              tipeLog: tipeLog,
+              pesan: message,
+              tanggal: DateTime.now().toIso8601String(),
+            ),
+          );
     } catch (_) {
       // Abaikan error (misal provider belum siap)
     }

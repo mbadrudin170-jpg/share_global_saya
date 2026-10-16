@@ -17,7 +17,7 @@ import 'package:share_global_saya/log_debug/log_debug_notifier.dart';
 class L {
   static bool showLocation = true;
   static bool useTerse = true;
-  final bool _aktifkanLog = true;
+  static final bool _aktifkanLog = true;
 
   static final Uuid _uuid = const Uuid();
 

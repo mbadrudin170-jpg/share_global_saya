@@ -24,13 +24,14 @@ class PemilihTanggalWaktuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sekarang = DateTime.now();
-    final waktuDipilih = waktuTerpilih;
-    final tanggalDipilih = tanggalTerpilih;
-    final sudahSekarang = tanggalDipilih != null &&
-        waktuDipilih != null &&
-        DateUtils.isSameDay(tanggalDipilih, sekarang) &&
-        waktuDipilih.hour == sekarang.hour &&
-        waktuDipilih.minute == sekarang.minute;
+    bool sudahSekarang = false;
+    if (waktuTerpilih != null && tanggalTerpilih != null) {
+      sudahSekarang = DateUtils.isSameDay(tanggalTerpilih!, sekarang) &&
+          waktuTerpilih!.hour == sekarang.hour &&
+          waktuTerpilih!.minute == sekarang.minute;
+    } else if (tanggalTerpilih != null) {
+      sudahSekarang = DateUtils.isSameDay(tanggalTerpilih!, sekarang);
+    }
     return Column(
       spacing: 8,
       children: [

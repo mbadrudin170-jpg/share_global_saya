@@ -13,8 +13,8 @@ class PemilihTanggalWaktuWidget extends StatelessWidget {
 
   const PemilihTanggalWaktuWidget({
     super.key,
-    required this.tanggalTerpilih,
-    required this.waktuTerpilih,
+    this.tanggalTerpilih,
+    this.waktuTerpilih,
     this.onPilihTanggal,
     this.onPilihWaktu,
     this.onResetKeSekarang,
@@ -28,8 +28,8 @@ class PemilihTanggalWaktuWidget extends StatelessWidget {
     final sudahSekarang = tanggalTerpilih != null &&
         waktuTerpilih != null &&
         DateUtils.isSameDay(tanggalTerpilih, sekarang) &&
-        waktuTerpilih!.hour == sekarang.hour &&
-        waktuTerpilih!.minute == sekarang.minute;
+        waktuTerpilih.hour == sekarang.hour &&
+        waktuTerpilih.minute == sekarang.minute;
     return Column(
       spacing: 8,
       children: [
@@ -67,16 +67,17 @@ class PemilihTanggalWaktuWidget extends StatelessWidget {
                     : FormatTanggal.formatDasar(tanggalTerpilih!),
               ),
             ),
-            TextButton.icon(
-              onPressed: onPilihWaktu,
-              icon: const Icon(Icons.lock_clock),
-              label: Text(
-                waktuTerpilih == null
-                    ? 'Pilih Jam'
-                    : '${waktuTerpilih!.hour.toString().padLeft(2, '0')}:'
-                        '${waktuTerpilih!.minute.toString().padLeft(2, '0')}',
+            if (onPilihWaktu != null)
+              TextButton.icon(
+                onPressed: onPilihWaktu,
+                icon: const Icon(Icons.lock_clock),
+                label: Text(
+                  waktuTerpilih == null
+                      ? 'Pilih Jam'
+                      : '${waktuTerpilih!.hour.toString().padLeft(2, '0')}:'
+                          '${waktuTerpilih!.minute.toString().padLeft(2, '0')}',
+                ),
               ),
-            ),
           ],
         ),
       ],

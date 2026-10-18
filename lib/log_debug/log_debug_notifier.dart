@@ -8,7 +8,6 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:share_global_saya/db/model/log_debug_model.dart';
 import 'package:share_global_saya/log_debug/print_custom.dart';
 
-
 part 'log_debug_notifier.freezed.dart';
 part 'log_debug_notifier.g.dart';
 
@@ -47,7 +46,7 @@ class LogDebugNotifier extends _$LogDebugNotifier {
 
   @override
   Future<LogDebugState> build() async {
-      return const LogDebugState();
+    return const LogDebugState();
   }
 
   Future<void> tambah(LogDebugModel logDebug) {
@@ -62,10 +61,6 @@ class LogDebugNotifier extends _$LogDebugNotifier {
       p(
         'tambah: [queue] stateSekarang.listLogDebug.length=${stateSekarang.listLogDebug.length}',
       );
-      for (final l in stateSekarang.listLogDebug.take(5)) {
-        p('tambah: [queue]   - [${l.tipeLog.name}] ${l.pesan}');
-      }
-
       final stateBaru = LogDebugState(
         listLogDebug: [...stateSekarang.listLogDebug, logDebug],
       );
@@ -87,7 +82,6 @@ class LogDebugNotifier extends _$LogDebugNotifier {
   Future<void> hapusSemua() async {
     state = const AsyncValue.data(LogDebugState());
   }
-
 
   Future<void> tesTambah(LogDebugModel logDebug) async {
     final stateSekarang = await future;

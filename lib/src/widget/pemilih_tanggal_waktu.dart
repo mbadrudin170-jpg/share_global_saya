@@ -28,8 +28,8 @@ class PemilihTanggalWaktuWidget extends StatelessWidget {
     final sudahSekarang = tanggalTerpilih != null &&
         waktuTerpilih != null &&
         DateUtils.isSameDay(tanggalTerpilih, sekarang) &&
-        waktuTerpilih.hour == sekarang.hour &&
-        waktuTerpilih.minute == sekarang.minute;
+        waktuTerpilih!.hour == sekarang.hour &&
+        waktuTerpilih!.minute == sekarang.minute;
     return Column(
       spacing: 8,
       children: [

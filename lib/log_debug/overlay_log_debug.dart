@@ -7,8 +7,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_global_saya/core_shared.dart';
 import 'package:share_global_saya/db/model/log_debug_model.dart';
-import 'package:share_global_saya/log_debug/print_custom.dart';
-import 'package:share_global_saya/src/widget/toast_widget.dart';
 
 // ============================================================================
 // Provider tampil / sembunyi ikon
@@ -24,8 +22,8 @@ class OverlayLogDebugTampilNotifier extends Notifier<bool> {
 
 final overlayLogDebugTampilProvider =
     NotifierProvider<OverlayLogDebugTampilNotifier, bool>(
-      OverlayLogDebugTampilNotifier.new,
-    );
+  OverlayLogDebugTampilNotifier.new,
+);
 
 // ============================================================================
 // Pengelola overlay (ikon + panel log)
@@ -319,9 +317,8 @@ class _OverlayLogDebugState extends ConsumerState<OverlayLogDebug> {
       try {
         waktu = DateTime.parse(log.tanggal);
       } catch (_) {}
-      final formattedTime = waktu != null
-          ? FormatWaktuLengkap.formatSingkat(waktu)
-          : log.tanggal;
+      final formattedTime =
+          waktu != null ? FormatWaktuLengkap.formatSingkat(waktu) : log.tanggal;
       buffer.writeln('[$formattedTime] [${log.tipeLog.name}] ${log.pesan}');
     }
     final text = buffer.toString().trim();
@@ -351,9 +348,8 @@ class _OverlayLogDebugState extends ConsumerState<OverlayLogDebug> {
         onPilih: (tipe) {
           p('_showModelSalin.onPilih: tipe=$tipe');
           entry.remove();
-          final filtered = semuaList
-              .where((log) => log.tipeLog == tipe)
-              .toList();
+          final filtered =
+              semuaList.where((log) => log.tipeLog == tipe).toList();
           p('_showModelSalin.onPilih: filtered.length=${filtered.length}');
           unawaited(_copyAllLogs(filtered));
         },
@@ -628,9 +624,8 @@ class _OverlayLogDebugState extends ConsumerState<OverlayLogDebug> {
             Text(
               title,
               style: TextStyle(
-                color: _modeTampilanLog == tipeLog
-                    ? Colors.green
-                    : Colors.white,
+                color:
+                    _modeTampilanLog == tipeLog ? Colors.green : Colors.white,
                 fontSize: 12,
               ),
             ),
@@ -638,9 +633,8 @@ class _OverlayLogDebugState extends ConsumerState<OverlayLogDebug> {
             Text(
               value,
               style: TextStyle(
-                color: _modeTampilanLog == tipeLog
-                    ? Colors.green
-                    : Colors.white,
+                color:
+                    _modeTampilanLog == tipeLog ? Colors.green : Colors.white,
                 fontSize: 12,
               ),
             ),
@@ -690,9 +684,8 @@ class _ItemLogDebugState extends State<_ItemLogDebug> {
           child: Text(
             widget.log.pesan,
             maxLines: _terlihatSemua ? null : 1,
-            overflow: _terlihatSemua
-                ? TextOverflow.clip
-                : TextOverflow.ellipsis,
+            overflow:
+                _terlihatSemua ? TextOverflow.clip : TextOverflow.ellipsis,
             style: const TextStyle(color: Colors.white, fontSize: 12),
           ),
         ),

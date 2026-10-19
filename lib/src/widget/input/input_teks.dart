@@ -48,6 +48,7 @@ class InputTeks extends StatelessWidget {
   final String? suffixText;
   final TextStyle? suffixStyle;
   final Color? suffixIconColor;
+  final bool autofocus;
 
   const InputTeks({
     super.key,
@@ -92,6 +93,7 @@ class InputTeks extends StatelessWidget {
     this.suffixText,
     this.suffixStyle,
     this.suffixIconColor,
+    this.autofocus = false,
   });
 
   @override
@@ -124,6 +126,7 @@ class InputTeks extends StatelessWidget {
       maxLines: maxLines,
       expands: expands,
       textCapitalization: textCapitalization,
+      autofocus: autofocus,
       decoration: InputDecoration(
         labelText: label,
         labelStyle: TextStyle(color: labelColor),

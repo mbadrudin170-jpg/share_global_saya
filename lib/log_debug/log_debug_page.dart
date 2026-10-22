@@ -104,9 +104,8 @@ class _LogDebugPageState extends ConsumerState<LogDebugPage> {
       try {
         waktu = DateTime.parse(log.tanggal);
       } catch (_) {}
-      final formattedTime = waktu != null
-          ? FormatWaktuLengkap.formatSingkat(waktu)
-          : log.tanggal;
+      final formattedTime =
+          waktu != null ? FormatWaktuLengkap.formatSingkat(waktu) : log.tanggal;
       buffer.writeln('[$formattedTime] ${log.pesan}');
     }
 
@@ -116,7 +115,7 @@ class _LogDebugPageState extends ConsumerState<LogDebugPage> {
     await Clipboard.setData(ClipboardData(text: text));
 
     if (mounted) {
-      AppToast.sukses(context,'Log debug disalin ke clipboard');
+      AppToast.sukses(context, 'Log debug disalin ke clipboard');
     }
   }
 
@@ -187,53 +186,56 @@ class _LogDebugPageState extends ConsumerState<LogDebugPage> {
       ),
       body: _modeTampilanDebug == ModeTampilanDebug.logDebug
           ? (_isLoading && isLoadingLogs
-                ? const Center(child: CircularProgressIndicator())
-                : _error != null
-                ? _ErrorView(message: _error!, onRetry: _loadData)
-                // TODO : bug pertimbangkan menghilangkan force-unwrap _error! karena sudah di-guard
-                : ListView.separated(
-                    physics: const AlwaysScrollableScrollPhysics(),
-                    padding: const EdgeInsets.all(16),
-                    itemCount: logs.length + _values.length,
-                    separatorBuilder: (_, __) => const SizedBox(height: 8),
-                    itemBuilder: (context, index) {
-                      if (index < logs.length) {
-                        final log = logs[index];
+              ? const Center(child: CircularProgressIndicator())
+              : _error != null
+                  ? _ErrorView(message: _error!, onRetry: _loadData)
+                  // TODO : bug pertimbangkan menghilangkan force-unwrap _error! karena sudah di-guard
+                  : ListView.separated(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: const EdgeInsets.all(16),
+                      itemCount: logs.length + _values.length,
+                      separatorBuilder: (_, __) => const SizedBox(height: 8),
+                      itemBuilder: (context, index) {
+                        if (index < logs.length) {
+                          final log = logs[index];
+                          return Card(
+                            margin: EdgeInsets.zero,
+                            child: ListTile(
+                              subtitle: Padding(
+                                padding: const EdgeInsets.only(top: 6),
+                                child: _buildLogDebugItem(log),
+                              ),
+                            ),
+                          );
+                        }
+                        final prefIndex = index - logs.length;
+                        final entry = _values.entries.elementAt(prefIndex);
                         return Card(
                           margin: EdgeInsets.zero,
                           child: ListTile(
+                            title: Text(
+                              entry.key,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
                             subtitle: Padding(
                               padding: const EdgeInsets.only(top: 6),
-                              child: _buildLogDebugItem(log),
+                              child: SelectableText(_formatValue(entry.value)),
+                            ),
+                            trailing: IconButton(
+                              icon: const Icon(Icons.copy),
+                              onPressed: () {
+                                final valueText = _formatValue(entry.value);
+                                Clipboard.setData(
+                                    ClipboardData(text: valueText));
+                                AppToast.sukses(context,
+                                    'Nilai "${entry.key}" disalin ke clipboard');
+                              },
                             ),
                           ),
                         );
-                      }
-                      final prefIndex = index - logs.length;
-                      final entry = _values.entries.elementAt(prefIndex);
-                      return Card(
-                        margin: EdgeInsets.zero,
-                        child: ListTile(
-                          title: Text(
-                            entry.key,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Padding(
-                            padding: const EdgeInsets.only(top: 6),
-                            child: SelectableText(_formatValue(entry.value)),
-                          ),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.copy),
-                            onPressed: () {
-                              final valueText = _formatValue(entry.value);
-                              Clipboard.setData(ClipboardData(text: valueText));
-                              AppToast.sukses(context, 'Nilai "${entry.key}" disalin ke clipboard');
-                            },
-                          ),
-                        ),
-                      );
-                    },
-                  ))
+                      },
+                    ))
           : const Center(child: Text('kosong')),
     );
   }

@@ -26,7 +26,6 @@ class FormatTanggal {
   static String formatSingkat(DateTime date) {
     return DateFormat('E, d MMM yy', 'id_ID').format(date);
   }
-  
 
   static String formatBulanTahun(DateTime date) {
     return DateFormat('MMMM yyyy', 'id_ID').format(date);

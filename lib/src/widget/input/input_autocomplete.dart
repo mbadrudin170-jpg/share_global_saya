@@ -104,9 +104,8 @@ class _InputAutocompleteState<T extends Object>
                 labelText: widget.label,
                 hintText: widget.hintText,
                 border: const OutlineInputBorder(),
-                prefixIcon: widget.prefixIcon != null
-                    ? Icon(widget.prefixIcon)
-                    : null,
+                prefixIcon:
+                    widget.prefixIcon != null ? Icon(widget.prefixIcon) : null,
                 suffixIcon: controller.text.isNotEmpty
                     ? IconButton(
                         icon: const Icon(Icons.clear),

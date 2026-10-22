@@ -159,8 +159,7 @@ class InputDropdown<T> extends StatelessWidget {
       ),
 
       // Validasi tetap ditangani FormField super class
-      validator:
-          validator ??
+      validator: validator ??
           (val) {
             if (wajib && val == null) {
               return requiredErrorMessage ?? '$label wajib dipilih';

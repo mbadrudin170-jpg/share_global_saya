@@ -171,8 +171,7 @@ class _ConfirmationDialogContent extends StatelessWidget {
                 style: OutlinedButton.styleFrom(
                   foregroundColor: cancelColor ?? colorScheme.onSurface,
                   side: BorderSide(
-                    color:
-                        cancelColor ??
+                    color: cancelColor ??
                         colorScheme.outline.withValues(alpha: 0.5),
                   ),
                 ),
@@ -184,14 +183,13 @@ class _ConfirmationDialogContent extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => Nav.pop(context, true),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      confirmColor ??
+                  backgroundColor: confirmColor ??
                       (isDestructive ? colorScheme.error : colorScheme.primary),
                   foregroundColor: confirmColor != null
                       ? colorScheme.onPrimary
                       : (isDestructive
-                            ? colorScheme.onError
-                            : colorScheme.onPrimary),
+                          ? colorScheme.onError
+                          : colorScheme.onPrimary),
                 ),
                 child: Text(confirmText),
               ),

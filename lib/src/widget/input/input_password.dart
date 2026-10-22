@@ -20,7 +20,6 @@ class InputPassword extends StatefulWidget {
     super.key,
     required this.controller,
     this.validator,
-
     this.label = 'Password',
     this.enabled = true,
     this.prefixIcon = const Icon(Icons.lock),
@@ -56,15 +55,13 @@ class _InputPasswordState extends State<InputPassword> {
       },
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       enabled: widget.enabled,
-      validator:
-          widget.validator ??
+      validator: widget.validator ??
           (value) {
             if (value == null || value.isEmpty) {
               return 'Password tidak boleh kosong';
             }
             return null;
           },
-
       decoration: InputDecoration(
         labelText: widget.label,
         border: const OutlineInputBorder(),

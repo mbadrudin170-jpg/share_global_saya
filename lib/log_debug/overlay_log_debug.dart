@@ -383,7 +383,12 @@ class _OverlayLogDebugState extends ConsumerState<OverlayLogDebug> {
     // Cek provider instance & status
     final logAsync = ref.watch(logDebugProvider);
     final logState = logAsync.value;
-    final semuaList = logState?.listLogDebug ?? [];
+    final semuaList = <LogDebugModel>[
+      ...?logState?.listLogDebug,
+      ...L.buffer.where(
+        (b) => !(logState?.listLogDebug ?? []).any((s) => s.id == b.id),
+      ),
+    ];
 
     p('=== OverlayLogDebug.build MULAI ===');
     p('logAsync.isLoading=${logAsync.isLoading}');

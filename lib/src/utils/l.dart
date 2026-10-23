@@ -23,6 +23,8 @@ class L {
 
   /// ProviderContainer untuk kirim log ke LogDebugNotifier (overlay debug)
   static ProviderContainer? _container;
+  static final List<LogDebugModel> _buffer = <LogDebugModel>[];
+  static List<LogDebugModel> get buffer => _buffer;
 
   // -------------------- INISIALISASI --------------------
   static void init(ProviderContainer container) {
@@ -100,6 +102,8 @@ class L {
       pesan: message,
       tanggal: DateTime.now().toIso8601String(),
     );
+    // Buffer sinkron agar tidak ada log yang hilang
+    _buffer.add(model);
     Future.delayed(const Duration(milliseconds: 50), () {
       try {
         container.read(logDebugProvider.notifier).tambah(model);

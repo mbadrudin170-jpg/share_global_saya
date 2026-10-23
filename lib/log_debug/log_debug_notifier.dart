@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:share_global_saya/db/model/log_debug_model.dart';
 import 'package:share_global_saya/log_debug/print_custom.dart';
+import 'package:share_global_saya/src/utils/l.dart';
 
 part 'log_debug_notifier.freezed.dart';
 part 'log_debug_notifier.g.dart';
@@ -80,6 +81,7 @@ class LogDebugNotifier extends _$LogDebugNotifier {
   }
 
   Future<void> hapusSemua() async {
+    L.hapusBuffer();
     state = const AsyncValue.data(LogDebugState());
   }
 

@@ -26,6 +26,9 @@ class L {
   static final List<LogDebugModel> _buffer = <LogDebugModel>[];
   static List<LogDebugModel> get buffer => _buffer;
 
+  /// Hapus semua isi buffer log (sinkron dengan hapusSemua notifier).
+  static void hapusBuffer() => _buffer.clear();
+
   // -------------------- INISIALISASI --------------------
   static void init(ProviderContainer container) {
     _container = container;

@@ -5,6 +5,7 @@
 // ============================================================
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stack_trace/stack_trace.dart';
 import 'package:uuid/uuid.dart';
@@ -93,17 +94,30 @@ class L {
 
   static void _kirimKeOverlayDebug(String message, TipeLog tipeLog) {
     if (_container == null) return;
+    final container = _container!;
+    final model = LogDebugModel(
+      id: _uuid.v4(),
+      tipeLog: tipeLog,
+      pesan: message,
+      tanggal: DateTime.now().toIso8601String(),
+    );
     try {
-      _container!.read(logDebugProvider.notifier).tambah(
-            LogDebugModel(
-              id: _uuid.v4(),
-              tipeLog: tipeLog,
-              pesan: message,
-              tanggal: DateTime.now().toIso8601String(),
-            ),
-          );
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        try {
+          container.read(logDebugProvider.notifier).tambah(model);
+        } catch (e) {
+          if (kDebugMode) debugPrint('L._kirimKeOverlayDebug gagal: $e');
+        }
+      });
     } catch (_) {
-      // Abaikan error (misal provider belum siap)
+      // Binding belum siap (sebelum runApp): fallback microtask
+      Future.microtask(() {
+        try {
+          container.read(logDebugProvider.notifier).tambah(model);
+        } catch (e) {
+          if (kDebugMode) debugPrint('L._kirimKeOverlayDebug gagal: $e');
+        }
+      });
     }
   }
 

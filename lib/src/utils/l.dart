@@ -5,7 +5,6 @@
 // ============================================================
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:share_global_saya/db/model/log_debug_model.dart';
 import 'package:share_global_saya/log_debug/log_debug_notifier.dart';
@@ -101,24 +100,13 @@ class L {
       pesan: message,
       tanggal: DateTime.now().toIso8601String(),
     );
-    try {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        try {
-          container.read(logDebugProvider.notifier).tambah(model);
-        } catch (e) {
-          if (kDebugMode) debugPrint('L._kirimKeOverlayDebug gagal: $e');
-        }
-      });
-    } catch (_) {
-      // Binding belum siap (sebelum runApp): fallback microtask
-      Future.microtask(() {
-        try {
-          container.read(logDebugProvider.notifier).tambah(model);
-        } catch (e) {
-          if (kDebugMode) debugPrint('L._kirimKeOverlayDebug gagal: $e');
-        }
-      });
-    }
+    Future.delayed(const Duration(milliseconds: 50), () {
+      try {
+        container.read(logDebugProvider.notifier).tambah(model);
+      } catch (e) {
+        if (kDebugMode) debugPrint('L._kirimKeOverlayDebug gagal: $e');
+      }
+    });
   }
 
   static String? _getLocationFromStackTrace() {

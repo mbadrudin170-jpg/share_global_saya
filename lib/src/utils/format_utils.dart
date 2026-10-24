@@ -55,13 +55,13 @@ class FormatJam {
 
 class FormatUang {
   FormatUang._();
-  static String formatRupiah(double amount) {
+  static String formatRupiah(num? amount) {
     final formatter = NumberFormat.currency(
       locale: 'id_ID',
       symbol: 'Rp ',
       decimalDigits: 0,
     );
-    return formatter.format(amount.abs());
+    return formatter.format((amount ?? 0).abs());
   }
 }
 

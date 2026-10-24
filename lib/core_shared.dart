@@ -35,3 +35,4 @@ export 'package:share_global_saya/src/widget/input/thousands_input_formatter.dar
 export 'package:share_global_saya/src/widget/confirmation_dialog.dart';
 export 'package:share_global_saya/src/widget/pemilih_tanggal_waktu.dart';
 export 'package:share_global_saya/src/widget/toast_widget.dart';
+export 'package:share_global_saya/src/utils/async_value_x.dart';

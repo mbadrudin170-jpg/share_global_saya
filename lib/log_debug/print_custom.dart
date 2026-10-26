@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
+
 void p(String pesan) {
-  final aktif = true;
-  if (aktif == true) {
+  const aktif = true;
+  if (aktif && kDebugMode) {
     print(pesan);
   }
 }

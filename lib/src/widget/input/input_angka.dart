@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 class InputAngka extends StatelessWidget {
   final TextEditingController controller;
   final String label;
+  final String? hintText;
   final bool wajib;
   final IconData? prefixIcon;
   final TextInputAction textInputAction;
@@ -25,6 +26,7 @@ class InputAngka extends StatelessWidget {
     super.key,
     required this.controller,
     this.label = 'Jumlah',
+    this.hintText,
     this.wajib = true,
     this.autofocus = false,
     this.prefixIcon,
@@ -69,6 +71,7 @@ class InputAngka extends StatelessWidget {
           inputFormatters ?? [ThousandsAndNegativeInputFormatter()],
       decoration: InputDecoration(
         labelText: label,
+        hintText: hintText,
         border: const OutlineInputBorder(),
         prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
       ),

@@ -52,6 +52,12 @@ isi tujuannya
 
 # larangan
 
+suruh AI anda isi custom tapi harus sesuai dengan topik di file ini
+
 # Ketentuan
 
+suruh AI anda isi custom tapi harus sesuai dengan topik di file ini
+
 # format penulisan ke file `saran_aturan_baru.md` di root proyek
+
+suruh AI anda isi custom tapi harus sesuai dengan topik di file ini

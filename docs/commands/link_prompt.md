@@ -12,8 +12,4 @@ lalu jalankan script build rules context
 
 # link
 
-1. Commands :
-   https://docs.google.com/document/d/1dMqI6kVZW73QHSBzeCZzxL_kEJhdtXUE8lZBSEEzHBM/edit?usp=sharing
-
-2. Aturan :
-   https://docs.google.com/document/d/1RKts4CpnBmsHDQxnO7aUqik7zo3NM9nf7o9B53UaWDY/edit?usp=sharing
+https://github.com/mbadrudin170-jpg/share_global_saya/tree/main/docs

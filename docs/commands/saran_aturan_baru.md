@@ -17,9 +17,15 @@ isi tujuannya
 9. cari referensi dari projek orang entah itu dari web atau dai github walaupun itu untuk AI agent.
 10. terutama github yang menunjukan caranya `Flutter Architecture Patterns`, `Flutter Clean Architecture Boilerplate`, `Flutter Architecture Hub`, Flutter Riverpod Best Practices,
 11. link referensi :
-    github
+    github:
     https://github.com/flutter/flutter.
-    flutter
+    https://github.com/aios-labs/projectrules/blob/main/data/rules/manual/flutter.md.
+    https://github.com/firebase/flutterfire/blob/main/.gemini/styleguide.md.
+    https://github.com/aios-labs/projectrules/blob/main/data/rules/manual/riverpod.md.
+    https://github.com/ittae/clean_architecture_linter.
+    https://github.com/flutter/flutter/blob/master/.github/PULL_REQUEST_TEMPLATE.md.
+
+    docs:
     https://docs.flutter.dev/resources/inside-flutter.
     https://docs.flutter.dev/app-architecture/concepts#layered-architecture.
     https://docs.flutter.dev/app-architecture/guide.
@@ -40,11 +46,6 @@ isi tujuannya
     https://docs.flutter.dev/ui/design/text/typography.
     https://docs.flutter.dev/ui/interactivity/focus.
     https://docs.flutter.dev/ui/internationalization.
-    https://github.com/aios-labs/projectrules/blob/main/data/rules/manual/flutter.md.
-    https://github.com/firebase/flutterfire/blob/main/.gemini/styleguide.md.
-    https://github.com/aios-labs/projectrules/blob/main/data/rules/manual/riverpod.md.
-    https://github.com/ittae/clean_architecture_linter.
-    https://github.com/flutter/flutter/blob/master/.github/PULL_REQUEST_TEMPLATE.md.
 
 12. lalu kasih saran aturan dari referensi referensi tersebut terutama mengenai flutter dan dart.
 

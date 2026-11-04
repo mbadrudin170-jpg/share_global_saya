@@ -1,22 +1,35 @@
+aturan_pemanfaatan_sdk_dan_paket.md
+
+ganti seluruh isi file diatas dengan yang ada di bawah ini, tapi rangkai dulu kata katanya di setiap aturan agar bisa dengan mudah di baca oleh orang lain dan AI, tapi tujuan nya harus tetap sama.
+untuk AI yang tidak bisa mengakses file nya cukup berikan saya isi final nanti saya salin sendiri.
+jangan tambahkan aturan yang tidak ada dibawah ini.
+jika ada aturan yang bentrok/duplikat dengan aturan difile ini atau pun di file AGENTS.md beritahukan ke saya jangan menebak nebak aturan mana yang benar, biar saya perbaiki dulu aturannya.
+biarkan urutan nomor yang loncat jangan disusun ulang. abaikan nomor yang ke loncat nya.
+setelah itu jalankan script script/build_rules_context.sh
+
 # Aturan
 
-## Skills
+# Skills
 
 1. Sebelum menulis atau mengubah kode, baca/load skill yang tersedia di `.agents/skills` agar implementasi sesuai panduan paket/fitur terkait. Jangan menulis ulang mekanisme yang sudah tersedia di skill.
 
-## Lainnya
+# Lainnya
 
 1. Jarak antar anak pada `Row` dan `Column`: gunakan properti `spacing` untuk mengatur jarak antar anak. Kecuali untuk anak yang membutuhkan jarak khusus, gunakan `SizedBox`.
+
 2. Pengurutan data pada koleksi: gunakan fungsi `sorted` dari paket `collection`.
+
 3. Pengambilan satu item dari koleksi: gunakan fungsi `firstWhereOrNull` dari paket `collection`.
+
 4. Pengambilan satu item pertama dari koleksi: gunakan fungsi `maxBy` dari paket `collection`.
+
 5. Gambar dari jaringan: gunakan `CachedNetworkImage` (bukan `Image.network`) mengikuti contoh pada folder `example` paket `cached_network_image` (lihat `example.md`), dengan menyediakan `placeholder` dan `errorWidget` agar status muat/gagal jelas.
 
-## Uuid
+# Uuid
 
-1. ID unik: gunakan `uuid.v4()` dari paket `uuid`. Dilarang menggunakan timestamp maupun pembuatan manual.
+1. id unik : gunakan uuid.v4() dari paket uuid ini dan dilarang menggunakan tanggal atau manual.
 
-## URL Launcher
+# URL Launcher
 
 1. Membuka tautan/URL: gunakan `launchUrl` dari paket `url_launcher`. Buat `Uri` dengan `Uri.parse`, `Uri.tryParse`, `Uri(...)`, atau `Uri.file`. Periksa nilai balik `bool` (lempar `Exception` jika gagal) dan bungkus operasi dengan `try`/`catch`.
 2. Mode peluncuran: tentukan `LaunchMode` sesuai kebutuhan (`externalApplication`, `inAppBrowserView`, `inAppWebView`, `externalNonBrowserApplication`). Untuk universal link, coba `externalNonBrowserApplication` terlebih dahulu, lalu fallback ke `inAppBrowserView` jika gagal.
@@ -29,16 +42,16 @@
 
 Ikuti contoh pada folder `example` paket `url_launcher` (lihat `example.md`).
 
-## Timezone
+# Timezone
 
 1. Inisialisasi: panggil `tz.initializeTimeZones()` sebelum menggunakan database zona waktu. Gunakan `tz.getLocation('...')` atau `tz.timeZoneDatabase` untuk memilih lokasi, dan konversi waktu dengan `tz.TZDateTime` (mis. `tz.TZDateTime.from(waktu, tz.local)`). Ikuti contoh pada folder `example` paket `timezone`.
 2. Platform: untuk web, gunakan `initializeTimeZone()` dari `package:timezone/browser.dart`; untuk VM/standalone, gunakan `tz.initializeTimeZones()` dari `package:timezone/data/latest.dart`. Pastikan database zona waktu terinisialisasi sebelum memanggil `tz.getLocation` atau `tz.TZDateTime`.
 3. Penanganan error: bungkus inisialisasi dengan `try`/`catch` dan catat kegagalan; untuk web, tangani `TimeZoneInitException` bila ada.
 
-## Sqflite
+# Sqflite
 
 1. Inisialisasi database: panggil `sqfliteFfiInit()` dan set `databaseFactory` sesuai platform (`databaseFactoryFfi` untuk desktop, `databaseFactoryFfiWeb` untuk web) sebelum membuka database. Ikuti contoh pada folder `example` paket `sqflite` (dan `sqflite_common_ffi`/`sqflite_common_ffi_web` untuk platform terkait).
 
-## adaptive_dialog
+# adaptive_dialog
 
-1. Dialog konfirmasi wajib `adaptive_dialog`. Contoh: `showOkCancelAlertDialog(context: context, title: ..., message: ..., okLabel: ..., cancelLabel: ..., isDestructiveAction: true)`.
+1. Dialog konfirmasi wajib adaptive_dialog `Contoh: showOkCancelAlertDialog(context: context, title: ..., message: ..., okLabel: ..., cancelLabel: ..., isDestructiveAction: true)`

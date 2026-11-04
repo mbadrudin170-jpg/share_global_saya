@@ -1,27 +1,23 @@
-# Kerjakan Task
+prompt/lainnya/kerjakan_task.md
 
-## Aturan
+ganti seluruh isi file di atas dengan yang ada di bawah ini, tapi rangkai dulu kata katanya di setiap aturan agar bisa dengan mudah di baca oleh orang lain dan AI, tapi tujuan nya harus tetap sama.
+untuk AI yang tidak bisa mengakses file nya cukup berikan saya isi final nanti saya salin sendiri.
+jangan tambahkan aturan yang tidak ada dibawah ini.
+jika ada aturan yang bentrok beritahukan ke saya jangan menebak nebak aturan mana yang benar, biar saya perbaiki dulu aturannya.
+jangan merubah kode dart
 
-Jangan berasumsi liar.
-
-1. Baca terlebih dahulu file `AGENTS.md`, lalu patuhi aturannya.
-2. Kerjakan 5 task di file `task.md`, mulai dari Bug Runtime dengan tingkat tertinggi terlebih dahulu, lalu ke bawah.
-3. Hanya kerjakan task yang statusnya `implementasikan`. Selain itu, jangan kerjakan; laporkan terlebih dahulu.
-4. Setelah mengerjakan satu task, wajib edit file `task.md` untuk menandai task tersebut sebagai selesai atau dilewati.
-5. Jangan mengerjakan task yang filenya sedang terbuka di editor; tandai task tersebut sebagai dilewati.
-6. Jika setelah dianalisis error tidak kunjung hilang, stop, rollback isi file `.dart` ke semula, lalu tandai task sebagai dilewati.
-7. Jika task ternyata sudah diimplementasikan, tandai sebagai selesai.
-8. Satu task satu tugas. Contoh: mengerjakan task pertama yang sudah diimplementasikan berarti 1/5; jika lint error tidak kunjung hilang setelah 3 kali perbaikan, stop, tandai sebagai dilewati (2/5); jika file `.dart` sedang terbuka di editor, stop dan tandai dilewati (3/5); jika sudah selesai diimplementasikan (4/5).
-9. Setelah mengecek 5 task, stop dan tunggu perintah untuk melanjutkan ke 5 task berikutnya.
-10. Sebelum mengedit file, buat file backup terlebih dahulu di folder `.backup_task` dengan ekstensi `.bak`, contoh `app.dart.bak`.
-11. Komentar: tambahkan komentar pada kode yang diedit/ditambahkan, jelaskan alasannya. Harus deskriptif dan tidak panjang.
-12. Lewati: setiap status dilewati beri penjelasan mengapa task dilewati.
-13. Flutter analyze: setelah itu jalankan `flutter analyze` hingga bersih dari linter.
-
-## Larangan
-
-(Tidak ada.)
-
-## Ketentuan
-
-(Tidak ada.)
+# Aturan
+jangan berasumsi liar 
+1. Baca terlebih dahulu file AGENTS.nd lalu patuhi aturannya.
+2. kerjakan 5 task di file task.md. dimulai dari bug runtime dan yang paling tinggi dulu tingaktanya baru kebawah.
+3. hanya kerjakan task yang statusnya `implementasikan` saja selain itu jangan kerjakan harus laporan dulu kesaya.
+4. setelah mengerjakan satu task wajib edit dulu file task.md nya agar menandai task itu dengan selesai atau dilewati.
+6. jangan mengerjakan task yang file nya sedang terbuka di editor dan tandai task nya dilewati saja.
+7. untuk task yang ternyata setelah di analyze error nya tak kunjung hilang maka stop dan rollback isi file .dart nya ke semula lalu tandai task nya sebagai dilewati.
+8. untuk task yang ternyata sudah diimplementasikan` tandai dengan selesai.
+9. satu task satu tugas, misal nya mengerjakan task pertama dan ternyata task nya sudah `diimplementasikan` berarti tertanda 1/5, jika task nya ternyata lint error nya tak kunjung hilang setelah 3 kali perbaikan dan stop lalu tandai task nya sebagai dilewati berarti tertanda 2/5, jika task yang ternyata file dart nya sedang terbuka di editor berarti stop dan tandai sebagai dilewati task nya berarti tertanda 3/5, jika task sudah selesai di implementasikan berarti tertanda 4/5, 
+10. jika sudah mengecek 5 task stop dulu jangan lanjut tunggu perintah saya untuk melanjut kan ke 5 task selanjut nya lagi.
+11. setiap ingin mengedit file tolong buat file backupnya dulu di folder .backup task dan kasih tipe .bak contoh app.dart.bak.
+12. komentar : tambahkan komentar ke kode yang diedit/ditambahkan jelaskan alasannya kenapa diedit/ditambah. harus deskriptif dan tidak panjang juga.
+13. lewati : setiap status lewati beri penjelasan kenapa sebuah task dilewati
+14. flutter analyze : setelah itu jalankan flutter analyze harus bersih dari linter.

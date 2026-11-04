@@ -1,38 +1,45 @@
-# Aturan
+prompt/aturan/aturan_lainnya.md
 
-1. (Nomor 1 tidak ada di sumber.)
-2. Baca terlebih dahulu `optimasi_ui.md` sebagai referensi desain UI/UX (layout, font, jarak, ukuran, padding, dan margin).
-3. Jadikan folder `/flutter/bin/cache/` (SDK Flutter dan Dart) serta `/.pub-cache/hosted/pub.dev/` (paket pihak ketiga) sebagai sumber kebenaran.
-4. Untuk instalasi atau penghapusan paket, gunakan `flutter pub add` atau `flutter pub remove`. Jangan menulis langsung di `pubspec.yaml`.
-5. Selalu jalankan `flutter analyze` setelah bekerja agar error tidak tertinggal, lalu rapikan kode dengan `dart format` pada file-file yang diubah.
-6. Fokus hanya pada kode dalam topik yang sedang dikerjakan. Gunakan alat yang mengedit sebagian kode, bukan menulis ulang seluruh file, untuk meminimalkan kesalahan.
-7. Dilarang mengedit file `.g.dart` dan `.freezed.dart`.
-8. Kode wajib konsisten. Jika perlu, cari referensi dari kode di file lain dalam proyek.
-9. Dilarang menggunakan `print` atau `debugPrint`. Untuk log console, selalu gunakan fungsi `p` yang sudah ada.
-10. Untuk debug, gunakan class `L` pada `l.dart` yang sudah ada agar log tercetak ke APK, bukan ke console.
-11. Variabel, fungsi, class, method, getter, dan provider wajib menggunakan bahasa Indonesia sesuai konvensi proyek. Nama file wajib `snake_case`. Usahakan namanya singkat namun mudah dipahami hanya dengan melihat namanya.
-12. Tambahkan doc comment (`///`) pada API publik dan logika kompleks agar mudah dipahami saat pemeliharaan.
-13. Git hanya digunakan untuk operasi baca. Untuk operasi lain, tanyakan terlebih dahulu kepada pengguna.
-14. Aset seperti gambar dan font wajib didaftarkan di `pubspec.yaml` dan dimuat melalui path yang konsisten.
-15. Selalu baca kode terlebih dahulu sebelum menganalisis; berasumsi liar dilarang. Khusus AI, jangan terlalu mengandalkan cache karena cache bisa basi.
-16. Gunakan `google_fonts` dengan cache; jangan memuat font dari jaringan secara berulang.
-17. Gunakan `flutter_native_splash` untuk splash screen; jangan membuat splash secara manual.
-18. Gunakan `fluttertoast` untuk feedback singkat; hindari spam toast.
-19. Gunakan paket `uuid` untuk ID unik; jangan menggunakan timestamp sebagai ID.
-20. Gunakan `SharedPreferences` hanya untuk pengaturan sederhana; jangan menyimpan data sensitif atau data berukuran besar.
-21. Untuk daftar dengan lebih dari 20 item, wajib gunakan `ListView.builder` atau `SliverList`; jangan merender semua item sekaligus.
-22. Analisis dulu hasil yang diinginkan, lalu cara menampilkannya. Baca `pubspec.lock` untuk mengetahui paket terinstal, dan cari kode di SDK Flutter atau `pub-cache`. Kode Flutter dan paket pihak ketiga hanya pembantu; jika membutuhkan kode dari mereka, ikuti aturannya agar tidak terjadi error atau bug runtime. Baca juga dokumentasi resmi Flutter, Dart, dan paket pihak ketiga bila perlu. Terutama baca kode dari folder Flutter dan `pub-cache` langsung, karena pelatihan AI terkadang tidak menyimpan kode versi Flutter, Dart, dan paket yang terinstal; dari kode tersebut kita bisa tahu bagian yang sudah deprecated, konstruktor baru, atau parameter baru.
-23. Saat mengerjakan sebuah kode, wajib baca file-file dependency-nya; kemungkinan masalahnya bukan berada di file ini, melainkan di file lain.
-24. Jangan khawatirkan token; lakukan pengecekan dengan membaca minimal sekitar 10 file.
-25. Semua aturan di file ini wajib dipatuhi tanpa pengecualian.
-26. Khusus AI: jika ingin mengubah kode, gunakan tool `write` / `edit` terlebih dahulu; jangan gunakan terminal.
-27. Untuk pencarian: gunakan `rg` untuk mencari teks, `glob` untuk mencari file berdasarkan nama, dan `ls` untuk melihat isi satu folder. Gunakan `grep -rn` hanya jika `rg` gagal. Jika `rg` dilaporkan belum terinstal, jalankan `which rg` lewat perintah shell terlebih dahulu dan jangan langsung berhenti.
-28. Selalu berikan pertanyaan kepada pengguna dengan tool `question`; jangan menebak-nebak; biarkan pengguna memberi kepastian.
-29. Format dokumentasi wajib pakai `///` dan hanya satu baris saja; jangan terlalu panjang.
-30. Selalu baca atau load skill yang tersedia terlebih dahulu agar AI bisa mendapatkan pengetahuan baru.
-31. Gunakan tool `todowrite` sebagai peta jalan agar pengguna tahu apa saja yang akan dikerjakan.
-32. Selalu baca folder `example` dari masing-masing paket di `.pub-cache` untuk mengetahui implementasi paket tersebut, serta memastikan implementasi di proyek sesuai dengan contoh yang disediakan oleh paket.
-33. Panggil `sqfliteFfiInit()` dan set `databaseFactory` sesuai platform (`databaseFactoryFfi` untuk desktop, `databaseFactoryFfiWeb` untuk web) sebelum membuka database.
-34. Hapus komentar yang tidak penting agar kode tetap bersih dan mudah dibaca.
-35. Navigasi antar halaman wajib helper `Nav` (core_shared). Contoh: `unawaited(Nav.to(context, const StatistikBahanBakar()))`.
-36. Import wajib `package:` (bukan relative import). Contoh: `import 'package:myapp/fitur/.../x.dart';`
+ganti seluruh isi file diatas dengan yang ada di bawah ini, tapi rangkai dulu kata katanya di setiap aturan agar bisa dengan mudah di baca oleh orang lain dan AI, tapi tujuan nya harus tetap sama.
+untuk AI yang tidak bisa mengakses file nya cukup berikan saya isi final nanti saya salin sendiri.
+jangan tambahkan aturan yang tidak ada dibawah ini.
+jika ada aturan yang bentrok/duplikat dengan aturan difile ini atau pun di file AGENTS.md beritahukan ke saya jangan menebak nebak aturan mana yang benar, biar saya perbaiki dulu aturannya.
+susun ulang nomor aturannya jika ada yang loncat.
+setelah itu jalankan script script/build_rules_context.sh
+
+2. baca dulu `optimasi_ui.md` untuk mengetahui refrensi dsain yang saya inginkan.
+3. selalu baca isi dari folder `/flutter/bin/cache/` untuk sdk flutter dan dart atau baca `/.pub-cache/hosted/pub.dev/` untuk paket pihak ketiga.
+4. instal paket : jika ingin menginstall paket harus pakai flutter pub add / flutter pub remove jangan tulis manual di `pubscl.yml`.
+5. flutter analyze & dart format : selalu jalankan flutter analyze setelah melakukan pekerjaan agar tidak error lagi, lalu rapikan kodenya dengan menjalankan dart format untuk file file itu.
+6. fokus ke code yang di dalam topik saja, selalu gunakan tools yang hanya edit sebagian kode tidak menulis ulang seluruh kode meminimalisir kesalahan.
+7. jangan edit file .g.dart dan .freezed.dart.
+8. konsisten : kode wajib konsisten kalau perlu cari referensi dari code di file file lain untuk referensi.
+9. print / debug print : dilarang pakai print atau debug print selalu gunakan class p yang sudah ada untuk mencetk log di console.
+10. log debug : untuk debug gunakan class l.dart yang sudah ada untuk mencetak log ke apk bukan ke console.
+11. penamaan : Variabel, fungsi, class, method, getter, dan provider wajib menggunakan bahasa Indonesia sesuai konvensi proyek; nama file wajib snake case, lalu usahakan namanya singkat namun bisa di pahami maksudnya hanya dengan melihat nama nya, untuk nama file wajib snack case;
+12. Dokumentasi Kode — Tambahkan doc comment (///) pada API publik dan logika kompleks;
+13. git : hanya untuk read saja selain itu tanyakan user.
+14. Manajemen Resource — Aset (gambar, font) wajib didaftarkan di pubspec.yaml dan dimuat via path yang konsisten.
+15. baca kode : selalu baca kode terlebih dahulu sebelum menganalisa, karena berasumsi liar itu dilarang di projek saya, khusus untuk AI jangan terlalu mengandalkan cache karena cache bisa base.
+16. Font — Gunakan google fonts dengan cache; jangan load font dari jaringan berulang.
+17. Splash Screen — Gunakan flutter native splash untuk splash; jangan buat manual.
+18. Toast — Gunakan flutter toast untuk feedback singkat; hindari spam toast.
+19. UUID — Gunakan uuid untuk ID unik; jangan gunakan timestamp sebagai ID.
+20. Shared Preferences — Gunakan untuk pengaturan sederhana; jangan simpan data sensitif atau besar.
+21. Daftar Panjang — Gunakan ListView.builder/SliverList untuk daftar > 20 item; jangan render semua item sekaligus.
+22. alur kerja : jadi alurnya begini kita analisis dulu apa yang kita inginkan misalnya menampilkan judul, nah kita analisa cara menampilkan judul itu bagaimana, kita baca pubscl.lock kota cari kode nya di di sebelah mana apakah di flutter atau di pub.cache, nah jika ternyata ada di flutter maka kita cari di folder flutter apa saja kode nya pasti kan setiap kode di flutter dan di paket pihak ketiga itu cuma pembantu mempermudah kita untuk membuat sebuah aplikasi, maka jika di dalam kode kita membutuhkan kode dari mereka itu, kita wajib mengikuti aturan nya, maksudnya mengikuti aturan nya itu supaya kode kita itu tidak ada error dan bug runtime. ya kalau bisa cari di web misal nya cara menampilkan judul di atas layar, nah jika ada kita baca dari dokumentasi resminya baik itu dari flutter, dart dan paket pihak ketiga itu. sebisa mungkin kita baca kode dari flutter dan pub.cache karena terkadang pelatihan ai itu tidak menyimpan kode versi flutter dart dan paket pihak ketiga yang saya install ini, dan juga dengan membaca kode mereka itu kita bisa tahu bahwa ternyata ada yang deprecated, ternyata ada konstruktor baru, parameter baru, sedangkan kita tidak akan tahu jika kita tidak melihat nya.
+23. kalau kita mengerjakan sebuah kode kita wajib baca file -file dependency nya kemungkinan masalah nya bukan berada di file ini mungkin di file lain.
+24. minal anda read 10 file gitu untuk pengecekan jangan khawatirkan token.
+25. semua aturan di file ini wajib dipatuhi jangan sampai ada satupun aturan yang diabaikan.
+26. khusus AI kalau ingin merubah kode AI gunakan tools write/edit dulu jangan pakai terminal.
+27. perintah cari : gunakan rg untuk untuk mencari teks, gunakan glob untuk mencari file berdasarkan nama, gunakan ls untuk melihat isi satu folder,pakai grep -rn hanya jika rg gagal, Jika `rg` dilaporkan belum terinstall, jalankan `which rg` lewat perintah shell dulu dan jangan langsung berhenti.
+28. question : selalu berikan pertanyaan ke saya dengan tools question jangan menebak nebak saya tidak suka itu, biarkan saya beri kepastian.
+29. komentar dokumen : format dokumen wajib pakai `///` dan hanya satu baris saja jangan terlalu panjang juga.
+30. SKILLs : selalu baca skills yang tersedia atau load skills nya dulu agar AI bisa mendapatkan pengetahuan baru.
+31. tool todowrite : gunakan tool ini untuk peta jalan agar saya tahu apa saja yang akan anda kerjakan.
+32. example : selalu baca folder example dari masing masing paket di .pub.cache untuk mengetahui implementasikan paket tersebut apakah implementasi di projek saya tidak sesuai dengan folder example yang disediakan oleh paket.
+33. Inisialisasi sqflite FFI: panggil sqfliteFfiInit() dan set databaseFactory sesuai platform (databaseFactoryFfi untuk desktop, databaseFactoryFfiWeb untuk web) sebelum membuka database."
+34. komentar : hapus komentar yang tidak penting.
+35. Navigasi antar halaman wajib helper Nav (core_shared), ` Contoh: unawaited(Nav.to(context, const StatistikBahanBakar()))`.
+36. Import wajib `package:` (bukan relative import).
+    Contoh: `import 'package:myapp/fitur/.../x.dart';`

@@ -16,7 +16,8 @@ isi tujuannya
 8. cari di web dan github biasanya orang orang suka bikin aturan apa untuk AI lalu pilih aturannya itu jika sesuai dengan projek saya ini.
 9. cari referensi dari projek orang entah itu dari web atau dai github walaupun itu untuk AI agent.
 10. terutama github yang menunjukan caranya `Flutter Architecture Patterns`, `Flutter Clean Architecture Boilerplate`, `Flutter Architecture Hub`, Flutter Riverpod Best Practices,
-11. link referensi :
+11. tambahkan aturan agar AI diwajibkan cek semua link yang di bawah ini terlebih dahulu jangan ada satu pun yang tidak di cek.
+12. link referensi :
     github:
     https://github.com/flutter/flutter.
     https://github.com/aios-labs/projectrules/blob/main/data/rules/manual/flutter.md.
@@ -47,7 +48,7 @@ isi tujuannya
     https://docs.flutter.dev/ui/interactivity/focus.
     https://docs.flutter.dev/ui/internationalization.
 
-12. lalu kasih saran aturan dari referensi referensi tersebut terutama mengenai flutter dan dart.
+13. lalu kasih saran aturan dari referensi referensi tersebut terutama mengenai flutter dan dart.
 
 # larangan
 

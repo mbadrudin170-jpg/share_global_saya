@@ -1,12 +1,5 @@
 prompt/aturan/aturan_lainnya.md
 
-ganti seluruh isi file diatas dengan yang ada di bawah ini, tapi rangkai dulu kata katanya di setiap aturan agar bisa dengan mudah di baca oleh orang lain dan AI, tapi tujuan nya harus tetap sama.
-untuk AI yang tidak bisa mengakses file nya cukup berikan saya isi final nanti saya salin sendiri.
-jangan tambahkan aturan yang tidak ada dibawah ini.
-jika ada aturan yang bentrok/duplikat dengan aturan difile ini atau pun di file AGENTS.md beritahukan ke saya jangan menebak nebak aturan mana yang benar, biar saya perbaiki dulu aturannya.
-susun ulang nomor aturannya jika ada yang loncat.
-setelah itu jalankan script script/build_rules_context.sh
-
 2. baca dulu `optimasi_ui.md` untuk mengetahui refrensi dsain yang saya inginkan.
 3. selalu baca isi dari folder `/flutter/bin/cache/` untuk sdk flutter dan dart atau baca `/.pub-cache/hosted/pub.dev/` untuk paket pihak ketiga.
 4. instal paket : jika ingin menginstall paket harus pakai flutter pub add / flutter pub remove jangan tulis manual di `pubscl.yml`.

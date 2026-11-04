@@ -1,14 +1,16 @@
-# Perbaiki Linter
+.kilo/commands/perbaiki_linter.md
 
-## Tujuan
-Memperbaiki linter yang ditentukan.
+# tujuan
 
-## Langkah Kerja
-1. Perbaiki linter yang ditentukan.
-2. Harus pakai tool `edit`; dilarang pakai terminal dan tool `write`.
+isi tujuannya
 
-## Larangan
-1. Dilarang mengubah kode yang tidak terkena linter yang ditentukan.
+# alur kerja
 
-## Ketentuan
-- (Tidak ada.)
+perbaiki linter yang saya tentukan.
+harus pakai tool edit dilarang pakai terminal dan tool write
+
+# larangan
+
+1. merubah kode yang tidak terkenal linter yang saya tentukan
+
+# Ketentuan

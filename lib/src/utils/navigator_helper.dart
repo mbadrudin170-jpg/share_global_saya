@@ -35,4 +35,20 @@ class Nav {
   static void pop<T extends Object?>(BuildContext context, [T? result]) {
     Navigator.pop(context, result);
   }
+
+  /// Mendorong halaman baru dan menghapus seluruh route sebelumnya.
+  ///
+  /// Digunakan misalnya saat membuka halaman dari notifikasi agar tumpukan
+  /// navigasi tidak menyisakan route awal di bawahnya.
+  static Future<T?> pushAndRemoveUntil<T extends Object?>(
+    BuildContext context,
+    Widget page, {
+    bool Function(Route<dynamic>)? predicate,
+  }) {
+    return Navigator.pushAndRemoveUntil<T>(
+      context,
+      MaterialPageRoute<T>(builder: (context) => page),
+      predicate ?? (route) => false,
+    );
+  }
 }

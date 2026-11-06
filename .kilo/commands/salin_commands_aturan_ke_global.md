@@ -4,5 +4,5 @@ kan di sini ada beberapa opsi dan yang harus menetukan itu saya, jadi tanyakan k
 
 ## service
 
-- salin folder `/home/muhamadbadrudin1000/service/.kilo/commands` beserta isinya ke `/home/muhamadbadrudin1000/share_global_saya/.kilo/commands`
-- salin folder `/home/muhamadbadrudin1000/service/.agents` ke `/home/muhamadbadrudin1000/share_global_saya/.agents`
+- salin folder `service/.kilo/commands` beserta isinya ke `share_global_saya/.kilo/commands`
+- salin folder `service/.agents` ke `share_global_saya/.agents`

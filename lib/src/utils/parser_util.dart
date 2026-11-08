@@ -125,30 +125,30 @@ class ParserUtil {
     return null;
   }
 
-  /// Mengurai boolean, mengembalikan null jika nilai tidak valid atau null.
-  static bool? parseBoolOrNull(dynamic value) {
+  /// Mengurai nilai menjadi String.
+  ///
+  /// Mengembalikan [defaultValue] jika nilai null atau tidak dapat diurai
+  /// menjadi String.
+  static String parseString(dynamic value, {String defaultValue = ''}) {
+    if (value == null) {
+      return defaultValue;
+    }
+    if (value is String) {
+      return value;
+    }
+    return value.toString();
+  }
+
+  /// Mengurai nilai menjadi String nullable.
+  ///
+  /// Mengembalikan `null` jika nilai null.
+  static String? parseStringOrNull(dynamic value) {
     if (value == null) {
       return null;
     }
-    if (value is bool) {
+    if (value is String) {
       return value;
     }
-    if (value is int) {
-      return value == 1;
-    }
-    if (value is String) {
-      final lowered = value.toLowerCase();
-      if (lowered == 'true' || lowered == '1') {
-        return true;
-      }
-      if (lowered == 'false' || lowered == '0') {
-        return false;
-      }
-      // String tidak dikenali, return null (bukan false)
-      L.w('Format bool tidak dikenali untuk nullable: $value');
-      return null;
-    }
-    L.w('Format bool tidak dikenali untuk nullable: $value');
-    return null;
+    return value.toString();
   }
 }

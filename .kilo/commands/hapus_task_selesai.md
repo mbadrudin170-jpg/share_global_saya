@@ -1,19 +1,3 @@
-# Hapus Task Selesai
-
-## Tujuan
-
-Menghapus task yang statusnya selesai dari file `task.md`.
-
-## Langkah Kerja
-
-1. Baca file `task.md`.
-2. Identifikasi task dengan status selesai.
-3. Hapus task tersebut dari file.
-
-## Larangan
-
-- Jangan menghapus task yang statusnya belum selesai.
-
-## Ketentuan
-
-- Hanya task dengan status selesai yang dihapus.
+1. hapus task yang status nya `selesai` atau yang sudah diKerjakan namun belum ubah status nya ke selesai di file `task.md`.
+2. hapus juga task yang statusnya `batal`.
+3.

@@ -227,9 +227,9 @@ class _LogDebugPageState extends ConsumerState<LogDebugPage> {
                               onPressed: () {
                                 final valueText = _formatValue(entry.value);
                                 Clipboard.setData(
-                                    ClipboardData(text: valueText));
+                                    ClipboardData(text: valueText),);
                                 AppToast.sukses(context,
-                                    'Nilai "${entry.key}" disalin ke clipboard');
+                                    'Nilai "${entry.key}" disalin ke clipboard',);
                               },
                             ),
                           ),

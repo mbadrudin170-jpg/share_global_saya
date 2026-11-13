@@ -1,7 +1,7 @@
 // path: lib/shared/widget/input/input_rupiah.dart
 
-import 'package:share_global_saya/src/widget/input/rupiah_input_formatter.dart';
 import 'package:flutter/material.dart';
+import 'package:share_global_saya/src/widget/input/rupiah_input_formatter.dart';
 
 class InputRupiah extends StatelessWidget {
   final TextEditingController controller;

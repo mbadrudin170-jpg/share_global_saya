@@ -24,7 +24,7 @@ class PemilihTanggalWaktuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sekarang = DateTime.now();
-    bool sudahSekarang = false;
+    var sudahSekarang = false;
     if (waktuTerpilih != null && tanggalTerpilih != null) {
       sudahSekarang = DateUtils.isSameDay(tanggalTerpilih!, sekarang) &&
           waktuTerpilih!.hour == sekarang.hour &&

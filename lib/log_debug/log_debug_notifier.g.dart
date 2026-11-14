@@ -33,7 +33,7 @@ final class LogDebugNotifierProvider
   LogDebugNotifier create() => LogDebugNotifier();
 }
 
-String _$logDebugNotifierHash() => r'4d3ff3d94e466b6aa9d1e5f7691ac0d7090fbc7a';
+String _$logDebugNotifierHash() => r'a489099af4683afa7904083ffb8428ee17a5ea42';
 
 abstract class _$LogDebugNotifier extends $AsyncNotifier<LogDebugState> {
   FutureOr<LogDebugState> build();

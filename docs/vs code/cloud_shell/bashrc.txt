@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-# ==========================================
-# DEFAULT WORKSPACE
-# ==========================================
-
-WORKSPACE="$HOME/berhenti_merokok"
-
-if [ -d "$WORKSPACE" ]; then
-    cd "$WORKSPACE"
-fi
-
-add_path_front() {
-  case ":$PATH:" in
-    *:"$1":*) ;;
-    *) export PATH="$1:$PATH" ;;
-  esac
-}
-
-# export PATH="$PATH:/google/flutter/bin"
-# . "/home/muhamadbadrudin1000/.deno/env"
-
-add_path_front "$HOME/.local/bin"
-# add_path_front "/usr/bin"  # biasanya tidak perlu; aktifkan hanya jika ada alasan spesifik
-add_path_front "/google/devshell/editor/code-oss-for-cloud-shell/node_modules/@vscode/ripgrep-universal/bin/linux-x64"
-=======
-=======
->>>>>>> parent of 3c28174 (`chore: sinkronkan dokumen proyek, migrasi skema database, dan perbarui aturan AGENTS`)
-=======
->>>>>>> parent of 3c28174 (`chore: sinkronkan dokumen proyek, migrasi skema database, dan perbarui aturan AGENTS`)
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -149,16 +117,33 @@ if ! shopt -oq posix; then
 fi
 source /google/devshell/bashrc.google
 
-cd ~/berhenti_merokok
+# ==========================================
+# DEFAULT WORKSPACE
+# ==========================================
+
+WORKSPACE="$HOME/workspace/base_coc"
+
+if [ -d "$WORKSPACE" ]; then
+    cd "$WORKSPACE"
+fi
+
+add_path_front() {
+  [ -d "$1" ] || return 0
+  case ":$PATH:" in
+    *:"$1":*)
+      PATH=":$PATH:"
+      PATH="${PATH//:$1:/:}"
+      PATH="${PATH#:}"
+      PATH="${PATH%:}"
+      ;;
+  esac
+  export PATH="$1:$PATH"
+}
+
+
 # export PATH="$PATH:/google/flutter/bin"
 # . "/home/muhamadbadrudin1000/.deno/env"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/usr/bin:$PATH"
-export PATH="/google/devshell/editor/code-oss-for-cloud-shell/node_modules/@vscode/ripgrep-universal/bin/linux-x64:$PATH"
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 3c28174 (`chore: sinkronkan dokumen proyek, migrasi skema database, dan perbarui aturan AGENTS`)
-=======
->>>>>>> parent of 3c28174 (`chore: sinkronkan dokumen proyek, migrasi skema database, dan perbarui aturan AGENTS`)
-=======
->>>>>>> parent of 3c28174 (`chore: sinkronkan dokumen proyek, migrasi skema database, dan perbarui aturan AGENTS`)
+
+add_path_front "$HOME/.local/bin"
+# add_path_front "/usr/bin"  # biasanya tidak perlu; aktifkan hanya jika ada alasan spesifik
+add_path_front "/google/devshell/editor/code-oss-for-cloud-shell/node_modules/@vscode/ripgrep-universal/bin/linux-x64"

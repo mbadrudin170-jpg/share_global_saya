@@ -13,7 +13,6 @@ export 'package:share_global_saya/log_debug/overlay_log_debug.dart';
 export 'package:share_global_saya/log_debug/print_custom.dart';
 // Utils
 export 'package:share_global_saya/src/utils/app_keys.dart';
-export 'package:share_global_saya/src/utils/async_value_x.dart';
 export 'package:share_global_saya/src/utils/format_utils.dart';
 export 'package:share_global_saya/src/utils/l.dart';
 export 'package:share_global_saya/src/utils/navigator_helper.dart';

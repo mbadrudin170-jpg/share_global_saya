@@ -1,6 +1,6 @@
 //lib/shared/utils/navigator_helper.dart
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Kelas helper untuk menyederhanakan navigasi.
 ///

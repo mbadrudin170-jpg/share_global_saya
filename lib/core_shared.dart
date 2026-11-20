@@ -20,6 +20,7 @@ export 'package:share_global_saya/src/utils/parser_util.dart';
 export 'package:share_global_saya/src/utils/shared_pref_service.dart';
 // Widget lainnya
 export 'package:share_global_saya/src/widget/confirmation_dialog.dart';
+export 'package:share_global_saya/src/widget/empty_state_view.dart';
 // Widget input
 export 'package:share_global_saya/src/widget/input/input_angka.dart';
 export 'package:share_global_saya/src/widget/input/input_autocomplete.dart';

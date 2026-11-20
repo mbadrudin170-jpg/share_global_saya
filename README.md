@@ -4,14 +4,14 @@ Pustaka Flutter berisi kode bersama untuk digunakan di beberapa proyek: logging 
 
 ## Identitas Paket
 
-| Atribut | Nilai |
-| --- | --- |
-| Nama paket | `share_global_saya` |
-| Versi | `1.0.0` |
-| SDK Dart | `>=3.4.0 <4.0.0` |
-| Flutter | `>=3.22.0` |
-| Publikasi | `publish_to: "none"` |
-| Repositori | `https://github.com/mbadrudin170-jpg/share_global_saya.git` |
+| Atribut             | Nilai                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------ |
+| Nama paket          | `share_global_saya`                                                                        |
+| Versi               | `1.0.0`                                                                                    |
+| SDK Dart            | `>=3.4.0 <4.0.0`                                                                           |
+| Flutter             | `>=3.22.0`                                                                                 |
+| Publikasi           | `publish_to: "none"`                                                                       |
+| Repositori          | `https://github.com/mbadrudin170-jpg/share_global_saya.git`                                |
 | Lokasi di workspace | Submodule [`share_global_saya/`](../README.md) pada repositori [`workspace`](../README.md) |
 
 ## Fitur yang Tersedia
@@ -48,25 +48,25 @@ import 'package:share_global_saya/core_shared.dart';
 
 ## Teknologi
 
-| Komponen | Keterangan |
-| --- | --- |
-| Framework | Flutter (Material) |
-| Bahasa | Dart `>=3.4.0 <4.0.0` |
-| State/Codegen | `flutter_riverpod`, `riverpod_annotation`, `freezed_annotation`, `freezed` |
-| Utilitas | `intl`, `uuid`, `shared_preferences`, `fluttertoast`, `stack_trace` |
-| Dev/Codegen | `flutter_test`, `flutter_lints`, `build_runner`, `riverpod_generator`, `riverpod_lint` |
+| Komponen      | Keterangan                                                                             |
+| ------------- | -------------------------------------------------------------------------------------- |
+| Framework     | Flutter (Material)                                                                     |
+| Bahasa        | Dart `>=3.4.0 <4.0.0`                                                                  |
+| State/Codegen | `flutter_riverpod`, `riverpod_annotation`, `freezed_annotation`, `freezed`             |
+| Utilitas      | `intl`, `uuid`, `shared_preferences`, `fluttertoast`, `stack_trace`                    |
+| Dev/Codegen   | `flutter_test`, `flutter_lints`, `build_runner`, `riverpod_generator`, `riverpod_lint` |
 
 ## Struktur Paket
 
-| Lokasi | Keterangan |
-| --- | --- |
-| `lib/core_shared.dart` | Titik ekspor utama API paket. |
-| `lib/log_debug/` | Logging, notifier/state, overlay, halaman log, dan utilitas cetak. |
-| `lib/db/model/log_debug_model.dart` | Model dan tipe log debug. |
-| `lib/src/utils/` | Navigasi, format, parser, shared preferences, kunci, ekstensi, dan helper logging. |
-| `lib/src/widget/` | Widget input (+ formatter), dialog, pemilih tanggal/waktu, dan toast. |
-| `docs/` | Dokumentasi pendukung paket/proyek (laporan linter, snippet, struktur, dll.). |
-| `aturan_sumber_kode _flutter_dan_paket.md` | Catatan/aturan sumber kode Flutter dan paket. |
+| Lokasi                                     | Keterangan                                                                         |
+| ------------------------------------------ | ---------------------------------------------------------------------------------- |
+| `lib/core_shared.dart`                     | Titik ekspor utama API paket.                                                      |
+| `lib/log_debug/`                           | Logging, notifier/state, overlay, halaman log, dan utilitas cetak.                 |
+| `lib/db/model/log_debug_model.dart`        | Model dan tipe log debug.                                                          |
+| `lib/src/utils/`                           | Navigasi, format, parser, shared preferences, kunci, ekstensi, dan helper logging. |
+| `lib/src/widget/`                          | Widget input (+ formatter), dialog, pemilih tanggal/waktu, dan toast.              |
+| `docs/`                                    | Dokumentasi pendukung paket/proyek (laporan linter, snippet, struktur, dll.).      |
+| `aturan_sumber_kode _flutter_dan_paket.md` | Catatan/aturan sumber kode Flutter dan paket.                                      |
 
 Berkas hasil generate yang ada: `lib/log_debug/log_debug_notifier.freezed.dart` dan `lib/log_debug/log_debug_notifier.g.dart`.
 

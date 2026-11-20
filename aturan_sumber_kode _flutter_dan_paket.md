@@ -1,5 +1,5 @@
 **Peringatan**
-***AI diwajibkan patuhi semua aturan ini***
+_**AI diwajibkan patuhi semua aturan ini**_
 
 # Global
 
@@ -59,6 +59,7 @@
   berakibat fatal kehasil nya nanti.
 
 # MCP server Dart/Flutter
+
 - aturan ini hanya untuk file file yang berkaitan dengar dart dan flutter saja.
 - AI diwajibkan agar selalu menggunakan mcp server dart/flutter untuk menegerjakan tugas.
 - yang tidak boleh dilakukan hanya dart_analyze_files, jadi untuk analisis cukup pakai flutter analyze via CLI.

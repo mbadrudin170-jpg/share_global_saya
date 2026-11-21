@@ -15,5 +15,5 @@
 //
 // Catatan: kelas dengan hanya static method (mis. `SharedPrefService`,
 // `ParserUtil`, `L`) TIDAK bisa di-mock dengan mocktail; abstraksikan ke
-// kelas/instance eksternal bila perlu di-mock (lihat skill `pola-testing`
+// kelas/instance eksternal bila perlu di-mock (lihat skill `aturan-testing`
 // bagian 4 dan `hasil_diskusi/diskusi_5.md`, R-4).

@@ -227,9 +227,12 @@ class _LogDebugPageState extends ConsumerState<LogDebugPage> {
                               onPressed: () {
                                 final valueText = _formatValue(entry.value);
                                 Clipboard.setData(
-                                    ClipboardData(text: valueText),);
-                                AppToast.sukses(context,
-                                    'Nilai "${entry.key}" disalin ke clipboard',);
+                                  ClipboardData(text: valueText),
+                                );
+                                AppToast.sukses(
+                                  context,
+                                  'Nilai "${entry.key}" disalin ke clipboard',
+                                );
                               },
                             ),
                           ),

@@ -32,8 +32,13 @@ class EmptyStateView extends StatelessWidget {
             spacing: 16,
             children: [
               Icon(ikon, size: 64, color: colorScheme.onSurfaceVariant),
-              Text(judul, style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
-              Text(deskripsi, style: textTheme.bodyMedium?.copyWith(color: colorScheme.onSurfaceVariant), textAlign: TextAlign.center),
+              Text(judul,
+                  style: textTheme.titleMedium
+                      ?.copyWith(fontWeight: FontWeight.bold)),
+              Text(deskripsi,
+                  style: textTheme.bodyMedium
+                      ?.copyWith(color: colorScheme.onSurfaceVariant),
+                  textAlign: TextAlign.center),
               if (ctaLabel != null && onCta != null)
                 OutlinedButton(
                   onPressed: onCta,

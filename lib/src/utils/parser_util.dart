@@ -1,5 +1,6 @@
 // lib/shared/utils/parser_util.dart
 
+import 'package:collection/collection.dart';
 import 'package:share_global_saya/src/utils/l.dart';
 
 class ParserUtil {
@@ -86,14 +87,13 @@ class ParserUtil {
     if (value == null) {
       return null;
     }
-    try {
-      return values.firstWhere(
-        (type) => type.name.toLowerCase() == value.toLowerCase(),
-      );
-    } catch (e) {
-      L.w('Gagal mengurai enum untuk tipe $T\nData: $value - Error: $e');
-      return null;
+    final result = values.firstWhereOrNull(
+      (type) => type.name.toLowerCase() == value.toLowerCase(),
+    );
+    if (result == null) {
+      L.w('Gagal mengurai enum untuk tipe $T\nData: $value');
     }
+    return result;
   }
 
   static int? parseIntOrNull(dynamic value) {

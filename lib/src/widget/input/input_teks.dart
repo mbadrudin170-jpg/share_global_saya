@@ -15,6 +15,8 @@ class InputTeks extends StatelessWidget {
   final FocusNode? nextFocusNode;
   final bool enabled;
   final void Function(String)? onSubmitted;
+  final TextInputType? keyboardType;
+  final bool obscureText;
 
   // Tambahan
   final String? hintText;
@@ -61,10 +63,12 @@ class InputTeks extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.onSuffixIconPressed,
-    this.focusNode,
-    this.nextFocusNode,
-    this.enabled = true,
-    this.onSubmitted,
+  this.focusNode,
+  this.nextFocusNode,
+  this.enabled = true,
+  this.onSubmitted,
+  this.keyboardType,
+  this.obscureText = false,
     this.maxLength,
     this.hintText,
     this.hintStyle,
@@ -120,6 +124,8 @@ class InputTeks extends StatelessWidget {
       enabled: enabled,
       focusNode: focusNode,
       cursorColor: cursorColor ?? theme.colorScheme.primary,
+      obscureText: obscureText,
+      keyboardType: keyboardType,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       maxLength: maxLength,
       minLines: minLines,

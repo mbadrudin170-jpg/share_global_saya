@@ -11,6 +11,8 @@ export 'package:share_global_saya/log_debug/log_debug_notifier.dart';
 export 'package:share_global_saya/log_debug/log_debug_page.dart';
 export 'package:share_global_saya/log_debug/overlay_log_debug.dart';
 export 'package:share_global_saya/log_debug/print_custom.dart';
+// Services
+export 'package:share_global_saya/src/services/cek_koneksi_internet.dart';
 // Utils
 export 'package:share_global_saya/src/utils/app_keys.dart';
 export 'package:share_global_saya/src/utils/format_utils.dart';

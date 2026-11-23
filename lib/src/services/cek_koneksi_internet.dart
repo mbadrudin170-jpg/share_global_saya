@@ -9,29 +9,18 @@ class KoneksiInternetService {
   // Mengembalikan Future<bool> yang bernilai true jika online, dan false jika offline.
   // diubah: dihapus keyword static agar bisa di-mock untuk testing
   Future<bool> cekKoneksi() async {
-    L.i('Memulai pemeriksaan status koneksi perangkat...');
-
     try {
       final connectivityResult = await Connectivity().checkConnectivity();
 
       L.i('Hasil mentah konektivitas diterima: Data: $connectivityResult');
 
       // Memeriksa apakah hasil konektivitas mengandung koneksi seluler atau WiFi.
-      final isOnline =
-          connectivityResult.contains(ConnectivityResult.mobile) ||
+      final isOnline = connectivityResult.contains(ConnectivityResult.mobile) ||
           connectivityResult.contains(ConnectivityResult.wifi);
 
-      if (isOnline) {
-        L.i('Perangkat terhubung ke internet (WiFi/Mobile Data)');
-      } else {
-        L.w('Perangkat tidak memiliki koneksi internet aktif (Offline)');
-      }
-
       return isOnline;
-    } catch (e, stackTrace) {
-      L.e(
-        'Terjadi kesalahan fatal saat memeriksa koneksi Error: $e $stackTrace',
-      );
+    } catch (e, s) {
+      L.e('Terjadi kesalahan fatal saat memeriksa koneksi: $e $s');
       // Mengembalikan false sebagai fallback aman jika terjadi error pada plugin
       return false;
     }
